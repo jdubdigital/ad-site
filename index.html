@@ -584,6 +584,29 @@
         opacity: 1;
         transform: none;
       }
+
+      #dashboardPage {
+        overflow-x: hidden;
+      }
+
+      #dashboardFavorites .dashboard-row,
+      #dashboardLikedAds .dashboard-row {
+        align-items: stretch !important;
+        flex-direction: column;
+      }
+
+      #dashboardPosts .dashboard-row > div:last-child,
+      #dashboardLikedAds .dashboard-row > div:last-child {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      #dashboardFavorites .view-favorite-poster,
+      #dashboardLikedAds .view-liked-poster,
+      #dashboardLikedAds .preview-liked-ad {
+        justify-content: center;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -1162,35 +1185,9 @@
           </div>
         </section>
 
-        <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Posts</p>
-            <p id="dashboardPostCount" class="mt-2 text-3xl font-extrabold">0</p>
-          </div>
-          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Likes received</p>
-            <p id="dashboardLikeCount" class="mt-2 text-3xl font-extrabold">0</p>
-          </div>
-          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Favorite posters</p>
-            <p id="dashboardFavoriteCount" class="mt-2 text-3xl font-extrabold">0</p>
-          </div>
-          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Liked ads</p>
-            <p id="dashboardLikedCount" class="mt-2 text-3xl font-extrabold">0</p>
-          </div>
-        </section>
       </div>
 
-      <div class="mt-6 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-        <section class="dashboard-table rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <h3 class="text-xl font-extrabold tracking-tight">Your posts</h3>
-            <span id="dashboardPostLabel" class="dashboard-muted text-sm text-neutral-500"></span>
-          </div>
-          <div id="dashboardPosts" class="divide-y divide-neutral-200"></div>
-        </section>
-
+      <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_1.5fr]">
         <div class="space-y-6">
           <section class="dashboard-panel rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
             <h3 class="text-xl font-extrabold tracking-tight">Public profile</h3>
@@ -1259,6 +1256,14 @@
             <div id="dashboardLikedAds" class="space-y-3"></div>
           </section>
         </div>
+
+        <section class="dashboard-table rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div class="mb-4 flex items-center justify-between gap-4">
+            <h3 class="text-xl font-extrabold tracking-tight">Your posts</h3>
+            <span id="dashboardPostLabel" class="dashboard-muted text-sm text-neutral-500"></span>
+          </div>
+          <div id="dashboardPosts" class="divide-y divide-neutral-200"></div>
+        </section>
       </div>
     </div>
   </section>
@@ -1364,10 +1369,6 @@
     const dashboardType = document.getElementById("dashboardType");
     const dashboardEmail = document.getElementById("dashboardEmail");
     const dashboardDescription = document.getElementById("dashboardDescription");
-    const dashboardPostCount = document.getElementById("dashboardPostCount");
-    const dashboardLikeCount = document.getElementById("dashboardLikeCount");
-    const dashboardFavoriteCount = document.getElementById("dashboardFavoriteCount");
-    const dashboardLikedCount = document.getElementById("dashboardLikedCount");
     const dashboardPostLabel = document.getElementById("dashboardPostLabel");
     const dashboardPosts = document.getElementById("dashboardPosts");
     const dashboardDisplayName = document.getElementById("dashboardDisplayName");
@@ -2056,7 +2057,6 @@
         .map((slug) => getPosterBySlug(slug))
         .filter(Boolean);
 
-      dashboardFavoriteCount.textContent = favorites.length;
       dashboardFavoriteLabel.textContent = `${favorites.length} saved`;
       dashboardFavorites.innerHTML = "";
 
@@ -2089,7 +2089,6 @@
 
     function renderDashboardLikedAds() {
       const likedAds = ads.filter((ad) => ad.liked);
-      dashboardLikedCount.textContent = likedAds.length;
       dashboardLikedLabel.textContent = `${likedAds.length} saved`;
       dashboardLikedAds.innerHTML = "";
 
@@ -2129,7 +2128,6 @@
     function renderDashboard() {
       const profile = getDashboardProfile();
       const myAds = ads.filter((ad) => ad.posterSlug === profile.posterSlug);
-      const totalLikes = myAds.reduce((sum, ad) => sum + ad.likes, 0);
 
       setAvatarContent(dashboardAvatar, profile.name, profile.avatarUrl);
       setAvatarContent(dashboardProfilePreview, profile.name, profile.avatarUrl);
@@ -2141,8 +2139,6 @@
       dashboardDisplayName.value = profile.name;
       dashboardAccountType.value = profile.type;
       dashboardProfileDescription.value = profile.description;
-      dashboardPostCount.textContent = myAds.length;
-      dashboardLikeCount.textContent = totalLikes;
       dashboardPostLabel.textContent = `${myAds.length} published`;
 
       renderDashboardPosts(myAds);
