@@ -146,6 +146,7 @@
 
     .theme-dark .filter-chip,
     .theme-dark .quick-search,
+    .theme-dark #categoryToggleBtn,
     .theme-dark #clearSearchBtn,
     .theme-dark #filtersClose {
       background: #171717 !important;
@@ -155,6 +156,7 @@
 
     .theme-dark .filter-chip:hover,
     .theme-dark .quick-search:hover,
+    .theme-dark #categoryToggleBtn:hover,
     .theme-dark #clearSearchBtn:hover,
     .theme-dark #filtersClose:hover {
       background: #262626 !important;
@@ -579,6 +581,32 @@
       transform: translateY(0);
     }
 
+    .category-chip-list {
+      max-height: 8.75rem;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 180ms ease;
+    }
+
+    .category-chip-list:not(.expanded)::after {
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95));
+      bottom: 0;
+      content: "";
+      height: 2.75rem;
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+    }
+
+    .theme-dark .category-chip-list:not(.expanded)::after {
+      background: linear-gradient(to bottom, rgba(23, 23, 23, 0), rgba(23, 23, 23, 0.95));
+    }
+
+    .category-chip-list.expanded {
+      max-height: 40rem;
+    }
+
     @media (max-width: 767px) {
       .dashboard-edit-action {
         opacity: 1;
@@ -647,6 +675,38 @@
                   <option>Hospitality</option>
                   <option>SaaS</option>
                   <option>Travel</option>
+                  <option>Food & Beverage</option>
+                  <option>Automotive</option>
+                  <option>Healthcare</option>
+                  <option>Beauty</option>
+                  <option>Fashion</option>
+                  <option>Gaming</option>
+                  <option>Casino</option>
+                  <option>Sports</option>
+                  <option>Education</option>
+                  <option>Real Estate</option>
+                  <option>Insurance</option>
+                  <option>Telecom</option>
+                  <option>Technology</option>
+                  <option>Consumer Goods</option>
+                  <option>Luxury</option>
+                  <option>Events</option>
+                  <option>Nonprofit</option>
+                  <option>Government</option>
+                  <option>Energy</option>
+                  <option>Fitness</option>
+                  <option>Home & Garden</option>
+                  <option>Pets</option>
+                  <option>Parenting</option>
+                  <option>B2B</option>
+                  <option>Recruiting</option>
+                  <option>Streaming</option>
+                  <option>Music</option>
+                  <option>Movies</option>
+                  <option>Restaurants</option>
+                  <option>CPG</option>
+                  <option>Pharma</option>
+                  <option>Apparel</option>
                   <option>Other</option>
                 </select>
               </label>
@@ -982,7 +1042,7 @@
       Discover the Web’s Best Ads
     </h2>
     <p class="mt-4 text-lg text-neutral-600 max-w-2xl">
-      Browse thousands of banner ads, creative campaigns, and HTML5 experiences for inspiration.
+      A curated archive of advertisements. Browse thousands of banner ads, creative campaigns, and HTML5 experiences for inspiration.
     </p>
     <div class="mt-8 flex space-x-4">
       <a href="#gallery"
@@ -1003,7 +1063,7 @@
 
   <!-- Filters Panel -->
   <div id="filtersPanel" class="hidden fixed top-[88px] left-0 right-0 z-40">
-    <div class="max-w-5xl mx-auto bg-white/90 glass p-5 md:p-6 shadow-2xl rounded-2xl border border-white/70">
+    <div id="searchMenu" class="max-w-5xl mx-auto bg-white/90 glass p-5 md:p-6 shadow-2xl rounded-2xl border border-white/70">
       <div class="flex items-start justify-between gap-4">
         <div>
           <p class="text-xs font-semibold uppercase tracking-wider text-violet-600">Search archive</p>
@@ -1021,35 +1081,55 @@
           class="w-full px-4 py-3 bg-white rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-violet-500" />
       </div>
 
-      <div class="mt-5 grid gap-4 md:grid-cols-3">
-        <button type="button" data-quick-search="animated"
-          class="quick-search popup-card text-left rounded-xl border border-neutral-200 bg-white/75 p-4 hover:bg-white transition">
-          <span class="popup-icon inline-flex h-9 w-9 items-center justify-center rounded-lg bg-violet-100 text-violet-600">↗</span>
-          <span class="mt-3 block font-semibold">Trending Motion</span>
-          <span class="popup-muted mt-1 block text-sm text-neutral-500">Animated and video ideas</span>
-        </button>
-        <button type="button" data-quick-search="retail"
-          class="quick-search popup-card text-left rounded-xl border border-neutral-200 bg-white/75 p-4 hover:bg-white transition">
-          <span class="popup-icon inline-flex h-9 w-9 items-center justify-center rounded-lg bg-pink-100 text-pink-600">$</span>
-          <span class="mt-3 block font-semibold">Retail Promos</span>
-          <span class="popup-muted mt-1 block text-sm text-neutral-500">Product and offer layouts</span>
-        </button>
-        <button type="button" data-quick-search="finance"
-          class="quick-search popup-card text-left rounded-xl border border-neutral-200 bg-white/75 p-4 hover:bg-white transition">
-          <span class="popup-icon inline-flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">#</span>
-          <span class="mt-3 block font-semibold">Finance Ads</span>
-          <span class="popup-muted mt-1 block text-sm text-neutral-500">Clean trust-led creatives</span>
-        </button>
-      </div>
-
       <div class="mt-5 grid gap-5 md:grid-cols-3">
         <div>
           <p class="popup-muted mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">Categories</p>
-          <div class="flex flex-wrap gap-2">
+          <div id="categoryChips" class="category-chip-list flex flex-wrap gap-2">
             <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="all" aria-pressed="true">All</button>
             <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Retail" aria-pressed="false">Retail</button>
             <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Finance" aria-pressed="false">Finance</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Entertainment" aria-pressed="false">Entertainment</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Hospitality" aria-pressed="false">Hospitality</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="SaaS" aria-pressed="false">SaaS</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Travel" aria-pressed="false">Travel</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Food & Beverage" aria-pressed="false">Food & Beverage</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Automotive" aria-pressed="false">Automotive</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Healthcare" aria-pressed="false">Healthcare</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Beauty" aria-pressed="false">Beauty</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Fashion" aria-pressed="false">Fashion</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Gaming" aria-pressed="false">Gaming</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Casino" aria-pressed="false">Casino</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Sports" aria-pressed="false">Sports</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Education" aria-pressed="false">Education</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Real Estate" aria-pressed="false">Real Estate</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Insurance" aria-pressed="false">Insurance</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Telecom" aria-pressed="false">Telecom</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Technology" aria-pressed="false">Technology</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Consumer Goods" aria-pressed="false">Consumer Goods</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Luxury" aria-pressed="false">Luxury</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Events" aria-pressed="false">Events</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Nonprofit" aria-pressed="false">Nonprofit</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Government" aria-pressed="false">Government</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Energy" aria-pressed="false">Energy</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Fitness" aria-pressed="false">Fitness</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Home & Garden" aria-pressed="false">Home & Garden</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Pets" aria-pressed="false">Pets</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Parenting" aria-pressed="false">Parenting</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="B2B" aria-pressed="false">B2B</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Recruiting" aria-pressed="false">Recruiting</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Streaming" aria-pressed="false">Streaming</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Music" aria-pressed="false">Music</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Movies" aria-pressed="false">Movies</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Restaurants" aria-pressed="false">Restaurants</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="CPG" aria-pressed="false">CPG</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Pharma" aria-pressed="false">Pharma</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Apparel" aria-pressed="false">Apparel</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Other" aria-pressed="false">Other</button>
           </div>
+          <button id="categoryToggleBtn" type="button"
+            class="mt-4 rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+            View all categories
+          </button>
         </div>
         <div>
           <p class="popup-muted mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">Mediums</p>
@@ -1331,6 +1411,7 @@
     // --- Elements ---
     const searchInput = document.getElementById("searchInput");
     const filtersPanel = document.getElementById("filtersPanel");
+    const searchMenu = document.getElementById("searchMenu");
     const overlay = document.getElementById("overlay");
     const mobileSearchBtn = document.getElementById("mobileSearchBtn");
     const gallery = document.getElementById("gallery");
@@ -1344,8 +1425,9 @@
     const filtersClose = document.getElementById("filtersClose");
     const clearSearchBtn = document.getElementById("clearSearchBtn");
     const activeSearchLabel = document.getElementById("activeSearchLabel");
+    const categoryChips = document.getElementById("categoryChips");
+    const categoryToggleBtn = document.getElementById("categoryToggleBtn");
     const filterChips = document.querySelectorAll(".filter-chip");
-    const quickSearchButtons = document.querySelectorAll(".quick-search");
     const heroCta = document.getElementById("heroCta");
     const galleryToolbar = document.getElementById("galleryToolbar");
     const archiveMain = document.getElementById("archiveMain");
@@ -1568,6 +1650,13 @@
     mobileSearchBtn.addEventListener("click", openFilters);
     overlay.addEventListener("click", closeFilters);
     filtersClose.addEventListener("click", closeFilters);
+    document.addEventListener("pointerdown", (e) => {
+      if (filtersPanel.classList.contains("hidden")) return;
+      const clickedInsideSearch = searchInput?.contains(e.target)
+        || mobileSearchBtn.contains(e.target)
+        || searchMenu.contains(e.target);
+      if (!clickedInsideSearch) closeFilters();
+    });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeFilters();
@@ -1578,6 +1667,15 @@
 
     // Mock ads
     const sizes = ["300x250", "728x90", "160x600", "300x600", "970x250", "468x60"];
+    const categories = [
+      "Retail", "Finance", "Entertainment", "Hospitality", "SaaS", "Travel",
+      "Food & Beverage", "Automotive", "Healthcare", "Beauty", "Fashion", "Gaming",
+      "Casino", "Sports", "Education", "Real Estate", "Insurance", "Telecom",
+      "Technology", "Consumer Goods", "Luxury", "Events", "Nonprofit", "Government",
+      "Energy", "Fitness", "Home & Garden", "Pets", "Parenting", "B2B",
+      "Recruiting", "Streaming", "Music", "Movies", "Restaurants", "CPG",
+      "Pharma", "Apparel", "Other"
+    ];
     const mediums = ["Web", "Social", "Digital", "Email", "Billboard", "Print", "In-App", "Other"];
     const submitters = [
       {
@@ -1636,7 +1734,7 @@
       return {
         id: i + 1,
         title: `Ad #${i + 1}`,
-        category: i % 2 === 0 ? "Retail" : "Finance",
+        category: categories[i % categories.length],
         medium: mediums[i % mediums.length],
         tags: i % 3 === 0 ? "Animated" : "Static",
         size: sizes[i % sizes.length],
@@ -2594,16 +2692,9 @@
       });
     });
 
-    quickSearchButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        activeFilters.category = "all";
-        activeFilters.medium = "all";
-        activeFilters.type = "all";
-        updateFilterChips("category", "all");
-        updateFilterChips("medium", "all");
-        updateFilterChips("type", "all");
-        setSearchQuery(button.dataset.quickSearch);
-      });
+    categoryToggleBtn.addEventListener("click", () => {
+      const isExpanded = categoryChips.classList.toggle("expanded");
+      categoryToggleBtn.textContent = isExpanded ? "Show fewer categories" : "View all categories";
     });
 
     clearSearchBtn.addEventListener("click", () => {
