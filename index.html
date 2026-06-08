@@ -7,6 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      color-scheme: light;
+    }
+
+    body.theme-dark {
+      color-scheme: dark;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
     }
@@ -22,15 +30,844 @@
       -webkit-backdrop-filter: blur(12px);
       background: rgba(255, 255, 255, 0.7);
     }
+
+    .theme-dark {
+      background: linear-gradient(to bottom, #0a0a0a, #09090b 52%, #000000) !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark header {
+      background: rgba(10, 10, 10, 0.92) !important;
+      border-color: #262626 !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .theme-dark header h1 span {
+      color: #e5e5e5 !important;
+    }
+
+    .theme-dark header nav a,
+    .theme-dark #mobileSearchBtn {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark header nav a:hover,
+    .theme-dark #mobileSearchBtn:hover {
+      color: #c4b5fd !important;
+    }
+
+    .theme-mode-button[aria-pressed="true"] {
+      background: #7c3aed;
+      color: white;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.28);
+    }
+
+    .theme-dark .theme-mode-control {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .theme-dark .theme-mode-button {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark .theme-mode-button:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .theme-mode-button[aria-pressed="true"] {
+      background: #8b5cf6 !important;
+      color: white !important;
+    }
+
+    .theme-dark #searchInput {
+      background: rgba(23, 23, 23, 0.82) !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark #searchInput::placeholder {
+      color: #737373 !important;
+    }
+
+    .theme-dark .search-icon {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark #heroCta {
+      background: linear-gradient(to right, #0a0a0a, #171717, #2e1065) !important;
+      border-color: #262626 !important;
+    }
+
+    .theme-dark #heroCta h2 {
+      color: #fafafa !important;
+    }
+
+    .theme-dark #heroCta p {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark .secondary-cta {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .secondary-cta:hover {
+      background: #262626 !important;
+    }
+
+    .theme-dark #overlay {
+      background: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .theme-dark #filtersPanel > div {
+      background: rgba(23, 23, 23, 0.85) !important;
+      border: 1px solid #262626;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .theme-dark .popup-muted {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark .popup-card {
+      background: rgba(38, 38, 38, 0.65) !important;
+      border-color: #404040 !important;
+    }
+
+    .theme-dark .popup-icon {
+      background: rgba(139, 92, 246, 0.18) !important;
+      color: #c4b5fd !important;
+    }
+
+    .theme-dark .filter-chip,
+    .theme-dark .quick-search,
+    .theme-dark #clearSearchBtn,
+    .theme-dark #filtersClose {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark .filter-chip:hover,
+    .theme-dark .quick-search:hover,
+    .theme-dark #clearSearchBtn:hover,
+    .theme-dark #filtersClose:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .filter-chip[aria-pressed="true"] {
+      background: #7c3aed !important;
+      border-color: #7c3aed !important;
+      color: white !important;
+      box-shadow: 0 10px 24px rgba(124, 58, 237, 0.25);
+    }
+
+    .theme-dark .filter-chip[aria-pressed="true"] {
+      background: #8b5cf6 !important;
+      border-color: #8b5cf6 !important;
+      color: white !important;
+    }
+
+    .theme-dark #mobileSearchInput {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark #mobileSearchInput::placeholder {
+      color: #737373 !important;
+    }
+
+    .theme-dark #resultsCount {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark #noResults {
+      background: rgba(23, 23, 23, 0.75) !important;
+      border-color: #262626 !important;
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark label[for="sortSelect"] {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark #sortSelect {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .ad-card {
+      background: #171717 !important;
+      border-color: #262626 !important;
+    }
+
+    .theme-dark .ad-card:hover {
+      border-color: #404040 !important;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .theme-dark .ad-card-body {
+      background: #171717 !important;
+      border-color: #262626 !important;
+    }
+
+    .theme-dark .ad-title {
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .ad-meta {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark .posted-by {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark .posted-by-name {
+      color: #e5e5e5 !important;
+    }
+
+    .poster-link {
+      cursor: pointer;
+    }
+
+    .poster-link:hover {
+      color: #7c3aed;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .theme-dark .poster-link:hover {
+      color: #c4b5fd !important;
+    }
+
+    .theme-dark .poster-hero {
+      background: linear-gradient(to right, #0a0a0a, #171717, #1e1b4b) !important;
+      border-color: #262626 !important;
+    }
+
+    .theme-dark .poster-avatar {
+      background: #262626 !important;
+      color: #ddd6fe !important;
+      border-color: #404040 !important;
+    }
+
+    .theme-dark .poster-badge,
+    .theme-dark .poster-back,
+    .theme-dark .poster-favorite {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #e5e5e5 !important;
+    }
+
+    .theme-dark .poster-back:hover,
+    .theme-dark .poster-favorite:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .poster-favorite[aria-pressed="true"] {
+      background: #db2777 !important;
+      border-color: #db2777 !important;
+      color: white !important;
+      box-shadow: 0 12px 28px rgba(219, 39, 119, 0.25);
+    }
+
+    .theme-dark .poster-favorite[aria-pressed="true"] {
+      background: #ec4899 !important;
+      border-color: #ec4899 !important;
+      color: white !important;
+    }
+
+    .theme-dark .poster-muted {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark .dashboard-panel,
+    .theme-dark .dashboard-stat,
+    .theme-dark .dashboard-table,
+    .theme-dark .dashboard-profile-card {
+      background: #171717 !important;
+      border-color: #262626 !important;
+    }
+
+    .theme-dark .dashboard-muted {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark #dashboardAvatar,
+    .theme-dark #dashboardProfilePreview,
+    .theme-dark #dashboardType {
+      background: rgba(139, 92, 246, 0.18) !important;
+      color: #ddd6fe !important;
+    }
+
+    .profile-avatar {
+      overflow: hidden;
+    }
+
+    .profile-avatar img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .theme-dark .dashboard-input {
+      background: #0a0a0a !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .dashboard-row {
+      border-color: #262626 !important;
+    }
+
+    .theme-dark .dashboard-secondary {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #e5e5e5 !important;
+    }
+
+    .theme-dark .dashboard-secondary:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .ad-like-count {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark footer {
+      border-color: #262626 !important;
+    }
+
+    .theme-dark #lightbox {
+      background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .theme-dark .lightbox-box {
+      background: #171717 !important;
+      border: 1px solid #262626 !important;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .theme-dark #lightboxCreative {
+      background: #0a0a0a !important;
+    }
+
+    .theme-dark .lightbox-details {
+      border-color: #262626 !important;
+    }
+
+    .theme-dark #lightboxDetails,
+    .theme-dark #lightboxLikes {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark #lightboxClose {
+      background: #171717 !important;
+      border: 1px solid #404040 !important;
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark #lightboxClose:hover {
+      color: #c4b5fd !important;
+    }
+
+    .theme-dark .account-secondary,
+    .theme-dark .mobile-account-button {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #e5e5e5 !important;
+    }
+
+    .theme-dark .account-secondary:hover,
+    .theme-dark .mobile-account-button:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark #loginModal {
+      background: rgba(0, 0, 0, 0.78) !important;
+    }
+
+    .theme-dark .login-box {
+      background: #171717 !important;
+      border-color: #262626 !important;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .theme-dark .login-muted {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark .login-input {
+      background: #0a0a0a !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .login-input::placeholder {
+      color: #737373 !important;
+    }
+
+    .theme-dark #loginStatus {
+      background: rgba(139, 92, 246, 0.14) !important;
+      border: 1px solid rgba(139, 92, 246, 0.28);
+      color: #ddd6fe !important;
+    }
+
+    .account-type-option[aria-pressed="true"] {
+      background: #7c3aed !important;
+      border-color: #7c3aed !important;
+      color: white !important;
+      box-shadow: 0 10px 24px rgba(124, 58, 237, 0.25);
+    }
+
+    .theme-dark .account-type-option {
+      background: #0a0a0a !important;
+      border-color: #404040 !important;
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark .account-type-option:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .account-type-option[aria-pressed="true"] {
+      background: #8b5cf6 !important;
+      border-color: #8b5cf6 !important;
+      color: white !important;
+    }
+
+    .theme-dark .login-close,
+    .theme-dark .login-link-button {
+      color: #d4d4d4 !important;
+    }
+
+    .theme-dark .login-close:hover,
+    .theme-dark .login-link-button:hover {
+      color: #c4b5fd !important;
+    }
+
+    .theme-dark #submitModal {
+      background: rgba(0, 0, 0, 0.78) !important;
+    }
+
+    .theme-dark .submit-box {
+      background: #171717 !important;
+      border-color: #262626 !important;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .theme-dark #submitModal .sticky {
+      background: rgba(23, 23, 23, 0.95) !important;
+      border-color: #262626 !important;
+    }
+
+    .theme-dark .submit-muted {
+      color: #a3a3a3 !important;
+    }
+
+    .theme-dark .submit-input,
+    .theme-dark .submit-select,
+    .theme-dark .submit-textarea {
+      background: #0a0a0a !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark .submit-input::placeholder,
+    .theme-dark .submit-textarea::placeholder {
+      color: #737373 !important;
+    }
+
+    .theme-dark .submit-panel,
+    .theme-dark .submit-dropzone,
+    .theme-dark .submit-summary {
+      background: #0a0a0a !important;
+      border-color: #404040 !important;
+    }
+
+    .theme-dark .submit-close,
+    .theme-dark .submit-secondary {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #e5e5e5 !important;
+    }
+
+    .theme-dark .submit-close:hover,
+    .theme-dark .submit-secondary:hover {
+      background: #262626 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .theme-dark #submitStatus {
+      background: rgba(139, 92, 246, 0.14) !important;
+      border: 1px solid rgba(139, 92, 246, 0.28);
+      color: #ddd6fe !important;
+    }
+
+    .field-tooltip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .field-tooltip-text {
+      bottom: calc(100% + 0.6rem);
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transform: translateY(4px);
+      transition: opacity 160ms ease, transform 160ms ease;
+      width: min(17rem, calc(100vw - 2rem));
+      z-index: 70;
+    }
+
+    .field-tooltip:hover .field-tooltip-text,
+    .field-tooltip:focus-within .field-tooltip-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .theme-dark .field-tooltip-text {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #e5e5e5 !important;
+    }
+
+    .html5-preview {
+      background:
+        linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(236, 72, 153, 0.12)),
+        repeating-linear-gradient(45deg, rgba(124, 58, 237, 0.12) 0 10px, rgba(255, 255, 255, 0.24) 10px 20px);
+      min-height: 180px;
+    }
+
+    .theme-dark .html5-preview {
+      background:
+        linear-gradient(135deg, rgba(124, 58, 237, 0.24), rgba(236, 72, 153, 0.18)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 10px, rgba(0, 0, 0, 0.16) 10px 20px);
+    }
+
+    .theme-dark .html5-preview-box {
+      background: #171717 !important;
+      border-color: #404040 !important;
+      color: #f5f5f5 !important;
+    }
+
+    .dashboard-edit-action {
+      opacity: 0;
+      transform: translateY(2px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .dashboard-row:hover .dashboard-edit-action,
+    .dashboard-edit-action:focus-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 767px) {
+      .dashboard-edit-action {
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-900">
+<body class="theme-light bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-900">
+  <!-- Submit Modal -->
+  <div id="submitModal" class="hidden fixed inset-0 bg-black/60 z-[60] items-center justify-center p-4">
+    <div class="submit-box w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-2xl border border-neutral-200 bg-white shadow-2xl">
+      <div class="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-neutral-200 bg-white/95 p-6 backdrop-blur">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-violet-600">Submit creative</p>
+          <h2 id="submitModalTitle" class="mt-1 text-2xl font-extrabold tracking-tight">Add an ad to the archive</h2>
+          <p id="submitModalSubtitle" class="submit-muted mt-2 text-sm text-neutral-500">Provide enough context for people to understand the creative, source, and format.</p>
+        </div>
+        <button id="submitClose" type="button" aria-label="Close submit form"
+          class="submit-close inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-neutral-200 bg-white text-2xl leading-none text-neutral-500 hover:bg-neutral-100 hover:text-violet-600 transition">
+          &times;
+        </button>
+      </div>
+
+      <form id="submitForm" class="grid gap-6 p-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <div class="space-y-6">
+          <section class="submit-panel rounded-2xl border border-neutral-200 bg-neutral-50 p-5">
+            <h3 class="text-lg font-extrabold tracking-tight">Creative details</h3>
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              <label class="block text-sm font-semibold sm:col-span-2">
+                Ad title
+                <input id="submitTitle" type="text" required maxlength="80" placeholder="Summer hotel offer"
+                  class="submit-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+              </label>
+              <label class="block text-sm font-semibold">
+                Category
+                <select id="submitCategory"
+                  class="submit-select mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                  <option>Retail</option>
+                  <option>Finance</option>
+                  <option>Entertainment</option>
+                  <option>Hospitality</option>
+                  <option>SaaS</option>
+                  <option>Travel</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="block text-sm font-semibold">
+                Medium
+                <select id="submitMedium"
+                  class="submit-select mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                  <option>Web</option>
+                  <option>Social</option>
+                  <option>Digital</option>
+                  <option>Email</option>
+                  <option>Billboard</option>
+                  <option>Print</option>
+                  <option>In-App</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="block text-sm font-semibold">
+                Format
+                <select id="submitType"
+                  class="submit-select mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                  <option value="image">Image</option>
+                  <option value="gif">GIF</option>
+                  <option value="video">Video</option>
+                  <option value="html5">HTML5 ZIP</option>
+                </select>
+              </label>
+              <label class="block text-sm font-semibold">
+                <span class="inline-flex items-center gap-2">
+                  Size
+                  <span class="field-tooltip">
+                    <button type="button" aria-label="Size help"
+                      class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-neutral-200 text-xs font-bold text-neutral-600 hover:bg-violet-100 hover:text-violet-700">
+                      ?
+                    </button>
+                    <span
+                      class="field-tooltip-text rounded-lg border border-neutral-200 bg-white p-3 text-left text-xs font-medium leading-5 text-neutral-600 shadow-xl">
+                      One submitted ad uses one selected preview size. Responsive HTML5 ads will render inside this fixed frame.
+                    </span>
+                  </span>
+                </span>
+                <select id="submitSize"
+                  class="submit-select mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                  <option>300x250</option>
+                  <option>728x90</option>
+                  <option>160x600</option>
+                  <option>300x600</option>
+                  <option>970x250</option>
+                  <option>468x60</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </label>
+              <div id="customSizeFields" class="hidden grid gap-3 sm:grid-cols-2">
+                <label class="block text-sm font-semibold">
+                  Width
+                  <input id="submitWidth" type="number" min="1" max="2000" placeholder="300"
+                    class="submit-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+                </label>
+                <label class="block text-sm font-semibold">
+                  Height
+                  <input id="submitHeight" type="number" min="1" max="2000" placeholder="250"
+                    class="submit-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+                </label>
+              </div>
+              <label class="block text-sm font-semibold sm:col-span-2">
+                Tags
+                <input id="submitTags" type="text" placeholder="Animated, summer, casino"
+                  class="submit-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+              </label>
+              <label class="block text-sm font-semibold sm:col-span-2">
+                Landing URL
+                <input id="submitLandingUrl" type="url" placeholder="https://example.com/campaign"
+                  class="submit-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+              </label>
+            </div>
+          </section>
+
+          <section class="submit-panel rounded-2xl border border-neutral-200 bg-neutral-50 p-5">
+            <h3 class="text-lg font-extrabold tracking-tight">Creative asset</h3>
+            <p class="submit-muted mt-1 text-sm text-neutral-500">Use a public media URL or upload a small local file, including HTML5 ZIP packages for rich ads.</p>
+            <div class="mt-4 grid gap-4">
+              <label class="block text-sm font-semibold">
+                Media URL
+                <input id="submitMediaUrl" type="url" placeholder="https://example.com/ad.jpg"
+                  class="submit-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+              </label>
+              <div class="submit-dropzone rounded-2xl border border-dashed border-neutral-300 bg-white p-5">
+                <label for="submitFile" class="flex cursor-pointer flex-col items-center justify-center text-center">
+                  <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-xl text-violet-600">+</span>
+                  <span class="mt-3 font-semibold">Upload image, GIF, video, or HTML5 ZIP</span>
+                  <span id="submitFileName" class="submit-muted mt-1 text-sm text-neutral-500">Max 2.5 MB for the static prototype</span>
+                </label>
+                <input id="submitFile" type="file" accept="image/*,video/*,.zip,application/zip,application/x-zip-compressed" class="hidden" />
+              </div>
+              <label class="block text-sm font-semibold">
+                Notes
+                <textarea id="submitNotes" rows="4" maxlength="280" placeholder="Optional context about the campaign, audience, or creative strategy."
+                  class="submit-textarea mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500"></textarea>
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <aside class="space-y-4">
+          <section class="submit-summary rounded-2xl border border-neutral-200 bg-white p-5">
+            <h3 class="text-lg font-extrabold tracking-tight">Submission summary</h3>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div>
+                <dt class="submit-muted text-neutral-500">Posted by</dt>
+                <dd id="submitPosterSummary" class="font-semibold">Mohegan Sun · Brand</dd>
+              </div>
+              <div>
+                <dt class="submit-muted text-neutral-500">Creative</dt>
+                <dd id="submitCreativeSummary" class="font-semibold">Untitled · Image · 300x250</dd>
+              </div>
+              <div>
+                <dt class="submit-muted text-neutral-500">Asset</dt>
+                <dd id="submitAssetSummary" class="font-semibold">Demo placeholder until media is provided</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="submit-summary rounded-2xl border border-neutral-200 bg-white p-5">
+            <h3 class="text-lg font-extrabold tracking-tight">Review checklist</h3>
+            <div class="mt-4 space-y-3 text-sm">
+              <label class="flex gap-3">
+                <input id="submitRights" type="checkbox" required class="mt-1 h-4 w-4 rounded border-neutral-300 text-violet-600 focus:ring-violet-500" />
+                <span>I have permission to share this creative publicly.</span>
+              </label>
+              <label class="flex gap-3">
+                <input id="submitTransparency" type="checkbox" required class="mt-1 h-4 w-4 rounded border-neutral-300 text-violet-600 focus:ring-violet-500" />
+                <span>The posted-by information is accurate for transparency.</span>
+              </label>
+            </div>
+          </section>
+
+          <div id="submitStatus" class="hidden rounded-xl bg-violet-50 p-4 text-sm text-violet-800"></div>
+
+          <div class="flex flex-col gap-3">
+            <button id="submitAdBtn" type="submit"
+              class="rounded-lg bg-violet-600 px-4 py-3 font-semibold text-white hover:bg-violet-700 transition">
+              Submit ad
+            </button>
+            <button id="submitResetBtn" type="button"
+              class="submit-secondary rounded-lg border border-neutral-300 bg-white px-4 py-3 font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+              Reset form
+            </button>
+          </div>
+        </aside>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="hidden fixed inset-0 bg-black/60 z-[60] items-center justify-center p-4">
+    <div class="login-box w-full max-w-md rounded-2xl border border-neutral-200 bg-white shadow-2xl">
+      <div class="p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-violet-600">Account</p>
+            <h2 id="loginModalTitle" class="mt-1 text-2xl font-extrabold tracking-tight">Sign in</h2>
+            <p id="loginModalSubtitle" class="login-muted mt-2 text-sm text-neutral-500">
+              Save favorites and build your own creative collections.
+            </p>
+          </div>
+          <button id="loginClose" type="button" aria-label="Close login"
+            class="login-close text-2xl leading-none text-neutral-500 hover:text-violet-600 transition">
+            &times;
+          </button>
+        </div>
+
+        <form id="loginForm" class="mt-6 space-y-4">
+          <label class="block text-sm font-semibold">
+            Email
+            <input id="loginEmail" type="email" required placeholder="you@example.com"
+              class="login-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+          </label>
+          <div id="accountTypeField" class="hidden">
+            <p class="mb-2 text-sm font-semibold">Account type</p>
+            <input id="accountType" type="hidden" value="Brand" />
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button"
+                class="account-type-option rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition"
+                data-account-type="Brand" aria-pressed="true">
+                Brand
+              </button>
+              <button type="button"
+                class="account-type-option rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition"
+                data-account-type="Agency" aria-pressed="false">
+                Agency
+              </button>
+              <button type="button"
+                class="account-type-option rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition"
+                data-account-type="Individual" aria-pressed="false">
+                Individual
+              </button>
+            </div>
+          </div>
+          <label class="block text-sm font-semibold">
+            Password
+            <input id="loginPassword" type="password" required placeholder="Password"
+              class="login-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+          </label>
+          <div class="flex items-center justify-between gap-4 text-sm">
+            <label class="login-muted flex items-center gap-2 text-neutral-500">
+              <input type="checkbox" class="h-4 w-4 rounded border-neutral-300 text-violet-600 focus:ring-violet-500" />
+              Remember me
+            </label>
+            <button type="button" class="login-link-button font-semibold text-violet-600 hover:text-violet-700">
+              Forgot password?
+            </button>
+          </div>
+          <button id="loginSubmit" type="submit"
+            class="w-full rounded-lg bg-violet-600 px-4 py-3 font-semibold text-white hover:bg-violet-700 transition">
+            Sign in
+          </button>
+        </form>
+
+        <div id="loginStatus" class="hidden mt-5 rounded-xl bg-violet-50 p-4 text-sm text-violet-800">
+          Signed in for this demo.
+        </div>
+
+        <button id="loginModeToggle" type="button"
+          class="login-link-button mt-5 w-full text-center text-sm font-semibold text-violet-600 hover:text-violet-700">
+          Need an account? Create one
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const savedMode = localStorage.getItem("adArchiveThemeMode") || "system";
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const resolvedTheme = savedMode === "dark" || (savedMode === "system" && systemDark) ? "dark" : "light";
+      document.body.classList.toggle("theme-dark", resolvedTheme === "dark");
+      document.body.classList.toggle("theme-light", resolvedTheme !== "dark");
+    })();
+  </script>
 
   <!-- Header -->
-  <header class="px-8 py-6 border-b border-neutral-200 sticky top-0 z-30 bg-white">
+  <header class="px-4 md:px-8 py-6 border-b border-neutral-200 sticky top-0 z-30 bg-white">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+      <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
         Ad<span class="text-neutral-700">Archive</span>
       </h1>
 
@@ -39,7 +876,7 @@
           <input id="searchInput" type="text" placeholder="Search ads, brands, categories..."
             class="w-full px-12 py-3 bg-white/70 rounded-lg border focus:outline-none focus:ring-2 focus:ring-violet-500" />
           <svg xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500" viewBox="0 0 20 20"
+            class="search-icon h-5 w-5 absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500" viewBox="0 0 20 20"
             fill="currentColor">
             <path fill-rule="evenodd"
               d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.386a1 1 0 01-1.414 1.415l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z"
@@ -48,12 +885,62 @@
         </div>
       </div>
 
-      <nav class="flex items-center space-x-6">
+      <nav class="flex items-center space-x-3 md:space-x-6">
         <div class="hidden md:flex space-x-6 text-sm font-medium">
           <a href="#" class="hover:text-violet-600 transition">Home</a>
-          <a href="#" class="hover:text-violet-600 transition">Submit</a>
+          <a href="#submit" class="submit-open hover:text-violet-600 transition">Submit</a>
           <a href="#" class="hover:text-violet-600 transition">About</a>
         </div>
+        <div id="themeModeGroup"
+          class="theme-mode-control inline-flex items-center rounded-xl border border-neutral-300 bg-white p-1 shadow-sm"
+          role="group" aria-label="Theme mode">
+          <button type="button" class="theme-mode-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-neutral-600 hover:bg-neutral-100 transition"
+            data-theme-mode="system" aria-label="Use system theme" aria-pressed="true" title="System">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M3 4a2 2 0 012-2h10a2 2 0 012 2v7a2 2 0 01-2 2h-3v2h2a1 1 0 110 2H6a1 1 0 110-2h2v-2H5a2 2 0 01-2-2V4zm2 0v7h10V4H5z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="theme-mode-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-neutral-600 hover:bg-neutral-100 transition"
+            data-theme-mode="light" aria-label="Use light theme" aria-pressed="false" title="Light">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button type="button" class="theme-mode-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-neutral-600 hover:bg-neutral-100 transition"
+            data-theme-mode="dark" aria-label="Use dark theme" aria-pressed="false" title="Dark">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex items-center gap-2">
+          <button id="signInBtn" type="button"
+            class="account-secondary inline-flex h-10 items-center gap-2 rounded-lg border border-neutral-300 bg-white px-4 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-100 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd" />
+            </svg>
+            <span id="accountLabel">Sign in</span>
+          </button>
+          <button id="createAccountBtn" type="button"
+            class="account-primary h-10 rounded-lg bg-violet-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 transition">
+            Create account
+          </button>
+        </div>
+        <button id="mobileAccountBtn" type="button" aria-label="Open account login"
+          class="mobile-account-button inline-flex h-10 w-10 items-center justify-center rounded-lg border border-neutral-300 bg-white text-neutral-700 shadow-sm hover:bg-neutral-100 transition lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
         <button id="mobileSearchBtn" class="md:hidden text-neutral-600 hover:text-violet-600 rounded-md p-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
@@ -66,7 +953,7 @@
   </header>
 
   <!-- Hero CTA -->
-<section class="relative bg-gradient-to-r from-pink-100 via-white to-violet-100 border-b border-neutral-200">
+<section id="heroCta" class="relative bg-gradient-to-r from-pink-100 via-white to-violet-100 border-b border-neutral-200">
   <div class="max-w-7xl mx-auto flex flex-col items-center justify-center text-center py-24 px-6">
     <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
       Discover the Web’s Best Ads
@@ -79,8 +966,8 @@
         class="px-6 py-3 bg-violet-600 text-white rounded-lg font-semibold hover:bg-violet-700 transition">
         Explore Ads
       </a>
-      <a href="#"
-        class="px-6 py-3 bg-white border border-neutral-300 rounded-lg font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+      <a href="#submit"
+        class="submit-open secondary-cta px-6 py-3 bg-white border border-neutral-300 rounded-lg font-semibold text-neutral-700 hover:bg-neutral-100 transition">
         Submit Your Ad
       </a>
     </div>
@@ -93,32 +980,291 @@
 
   <!-- Filters Panel -->
   <div id="filtersPanel" class="hidden fixed top-[88px] left-0 right-0 z-40">
-    <div class="max-w-7xl mx-auto bg-white/80 glass p-6 shadow-xl rounded-xl">
-      <div class="grid grid-cols-4 gap-8 text-sm">
-        <div class="space-y-4 font-medium">
-          <button
-            class="flex items-center space-x-2 text-violet-600 font-semibold rounded-md px-2 py-1 hover:bg-violet-100">
-            <span>🔥</span><span>Trending</span>
-          </button>
-          <button
-            class="flex items-center space-x-2 text-neutral-700 hover:text-violet-600 rounded-md px-2 py-1 hover:bg-violet-100">
-            <span>📂</span><span>By Category</span>
-          </button>
+    <div class="max-w-5xl mx-auto bg-white/90 glass p-5 md:p-6 shadow-2xl rounded-2xl border border-white/70">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-violet-600">Search archive</p>
+          <h2 class="mt-1 text-xl font-extrabold tracking-tight">Find creative inspiration fast</h2>
+          <p class="popup-muted mt-1 text-sm text-neutral-500">Search by title, category, tag, format, or ad size.</p>
         </div>
-        <div class="col-span-3 grid grid-cols-3 gap-4">
-          <button
-            class="text-left text-neutral-700 hover:text-violet-600 rounded-md px-2 py-1 hover:bg-violet-100">E-commerce</button>
-          <button
-            class="text-left text-neutral-700 hover:text-violet-600 rounded-md px-2 py-1 hover:bg-violet-100">SaaS</button>
-          <button
-            class="text-left text-neutral-700 hover:text-violet-600 rounded-md px-2 py-1 hover:bg-violet-100">Fintech</button>
+        <button id="filtersClose" type="button" aria-label="Close search menu"
+          class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-neutral-200 bg-white text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 transition">
+          &times;
+        </button>
+      </div>
+
+      <div class="mt-5 md:hidden">
+        <input id="mobileSearchInput" type="text" placeholder="Search ads..."
+          class="w-full px-4 py-3 bg-white rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+      </div>
+
+      <div class="mt-5 grid gap-4 md:grid-cols-3">
+        <button type="button" data-quick-search="animated"
+          class="quick-search popup-card text-left rounded-xl border border-neutral-200 bg-white/75 p-4 hover:bg-white transition">
+          <span class="popup-icon inline-flex h-9 w-9 items-center justify-center rounded-lg bg-violet-100 text-violet-600">↗</span>
+          <span class="mt-3 block font-semibold">Trending Motion</span>
+          <span class="popup-muted mt-1 block text-sm text-neutral-500">Animated and video ideas</span>
+        </button>
+        <button type="button" data-quick-search="retail"
+          class="quick-search popup-card text-left rounded-xl border border-neutral-200 bg-white/75 p-4 hover:bg-white transition">
+          <span class="popup-icon inline-flex h-9 w-9 items-center justify-center rounded-lg bg-pink-100 text-pink-600">$</span>
+          <span class="mt-3 block font-semibold">Retail Promos</span>
+          <span class="popup-muted mt-1 block text-sm text-neutral-500">Product and offer layouts</span>
+        </button>
+        <button type="button" data-quick-search="finance"
+          class="quick-search popup-card text-left rounded-xl border border-neutral-200 bg-white/75 p-4 hover:bg-white transition">
+          <span class="popup-icon inline-flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">#</span>
+          <span class="mt-3 block font-semibold">Finance Ads</span>
+          <span class="popup-muted mt-1 block text-sm text-neutral-500">Clean trust-led creatives</span>
+        </button>
+      </div>
+
+      <div class="mt-5 grid gap-5 md:grid-cols-3">
+        <div>
+          <p class="popup-muted mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">Categories</p>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Retail" aria-pressed="false">Retail</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Finance" aria-pressed="false">Finance</button>
+          </div>
         </div>
+        <div>
+          <p class="popup-muted mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">Mediums</p>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Web" aria-pressed="false">Web</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Social" aria-pressed="false">Social</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Digital" aria-pressed="false">Digital</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Email" aria-pressed="false">Email</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Billboard" aria-pressed="false">Billboard</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Print" aria-pressed="false">Print</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="In-App" aria-pressed="false">In-App</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="medium" data-filter-value="Other" aria-pressed="false">Other</button>
+          </div>
+        </div>
+        <div>
+          <p class="popup-muted mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">Formats</p>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="type" data-filter-value="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="type" data-filter-value="image" aria-pressed="false">Image</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="type" data-filter-value="gif" aria-pressed="false">GIF</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="type" data-filter-value="video" aria-pressed="false">Video</button>
+            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="type" data-filter-value="html5" aria-pressed="false">HTML5</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-neutral-200 pt-4">
+        <p id="activeSearchLabel" class="popup-muted text-sm text-neutral-500">Showing everything in the archive.</p>
+        <button id="clearSearchBtn" type="button"
+          class="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+          Clear search
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- Poster Profile -->
+  <section id="posterPage" class="hidden">
+    <div class="poster-hero border-b border-neutral-200 bg-gradient-to-r from-violet-50 via-white to-pink-50 px-4 md:px-8 py-10">
+      <div class="max-w-7xl mx-auto">
+        <button id="posterBackBtn" type="button"
+          class="poster-back inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-100 transition">
+          <span aria-hidden="true">←</span>
+          Back to archive
+        </button>
+
+        <div class="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="flex items-start gap-5">
+            <div id="posterAvatar"
+              class="profile-avatar poster-avatar flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-violet-200 bg-violet-100 text-2xl font-extrabold text-violet-700">
+              --
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <h2 id="posterName" class="text-4xl font-extrabold tracking-tight">Poster</h2>
+                <span id="posterType"
+                  class="poster-badge rounded-full border border-violet-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-700">
+                  Agency
+                </span>
+              </div>
+              <p id="posterDescription" class="poster-muted mt-3 max-w-3xl text-neutral-600">
+                A public profile for this poster.
+              </p>
+              <div class="poster-muted mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-neutral-500">
+                <span id="posterLocation"></span>
+                <span id="posterSpecialty"></span>
+                <span id="posterPostCount"></span>
+              </div>
+            </div>
+          </div>
+          <button id="posterFavoriteBtn" type="button" aria-pressed="false"
+            class="poster-favorite inline-flex h-11 shrink-0 items-center gap-2 rounded-lg border border-neutral-300 bg-white px-4 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-100 transition">
+            <span id="posterFavoriteIcon" aria-hidden="true">♡</span>
+            <span id="posterFavoriteText">Favorite</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 md:px-8 py-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-5 flex items-center justify-between">
+          <h3 class="text-xl font-extrabold tracking-tight">Posts</h3>
+          <p id="posterResultCount" class="poster-muted text-sm text-neutral-500"></p>
+        </div>
+        <div id="posterGallery" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-5 gap-6 space-y-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section id="dashboardPage" class="hidden px-4 md:px-8 py-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-violet-600">Account</p>
+          <h2 class="mt-1 text-4xl font-extrabold tracking-tight">Dashboard</h2>
+          <p class="dashboard-muted mt-2 text-neutral-500">Manage your public profile, posts, and favorite posters.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#gallery"
+            class="dashboard-secondary inline-flex h-10 items-center rounded-lg border border-neutral-300 bg-white px-4 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-100 transition">
+            View archive
+          </a>
+          <button type="button"
+            class="submit-open h-10 rounded-lg bg-violet-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 transition">
+            Submit ad
+          </button>
+        </div>
+      </div>
+
+      <div class="grid gap-5 lg:grid-cols-[1.1fr_1.6fr]">
+        <section class="dashboard-profile-card rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div class="flex items-start gap-4">
+            <div id="dashboardAvatar"
+              class="profile-avatar flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-violet-100 text-xl font-extrabold text-violet-700">
+              MS
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 id="dashboardName" class="text-2xl font-extrabold tracking-tight">Mohegan Sun</h3>
+                <span id="dashboardType"
+                  class="rounded-full bg-violet-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-700">
+                  Brand
+                </span>
+              </div>
+              <p id="dashboardEmail" class="dashboard-muted mt-1 text-sm text-neutral-500">you@example.com</p>
+              <p id="dashboardDescription" class="dashboard-muted mt-4 text-sm leading-6 text-neutral-600">
+                Public profile summary for the ads, campaigns, and creative references you share.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Posts</p>
+            <p id="dashboardPostCount" class="mt-2 text-3xl font-extrabold">0</p>
+          </div>
+          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Likes received</p>
+            <p id="dashboardLikeCount" class="mt-2 text-3xl font-extrabold">0</p>
+          </div>
+          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Favorite posters</p>
+            <p id="dashboardFavoriteCount" class="mt-2 text-3xl font-extrabold">0</p>
+          </div>
+          <div class="dashboard-stat rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <p class="dashboard-muted text-sm font-semibold text-neutral-500">Liked ads</p>
+            <p id="dashboardLikedCount" class="mt-2 text-3xl font-extrabold">0</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-6 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+        <section class="dashboard-table rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div class="mb-4 flex items-center justify-between gap-4">
+            <h3 class="text-xl font-extrabold tracking-tight">Your posts</h3>
+            <span id="dashboardPostLabel" class="dashboard-muted text-sm text-neutral-500"></span>
+          </div>
+          <div id="dashboardPosts" class="divide-y divide-neutral-200"></div>
+        </section>
+
+        <div class="space-y-6">
+          <section class="dashboard-panel rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <h3 class="text-xl font-extrabold tracking-tight">Public profile</h3>
+            <div class="mt-4 space-y-4">
+              <div>
+                <p class="mb-2 text-sm font-semibold">Profile picture</p>
+                <div class="flex items-center gap-4">
+                  <div id="dashboardProfilePreview"
+                    class="profile-avatar flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-violet-100 text-xl font-extrabold text-violet-700">
+                    MS
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <label for="dashboardAvatarUpload"
+                      class="dashboard-secondary inline-flex h-10 cursor-pointer items-center rounded-lg border border-neutral-300 bg-white px-4 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-100 transition">
+                      Upload image
+                    </label>
+                    <button id="dashboardRemoveAvatar" type="button"
+                      class="dashboard-secondary hidden h-10 rounded-lg border border-neutral-300 bg-white px-4 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-100 transition">
+                      Remove
+                    </button>
+                  </div>
+                </div>
+                <input id="dashboardAvatarUpload" type="file" accept="image/*" class="hidden" />
+                <p class="dashboard-muted mt-2 text-xs text-neutral-500">If no image is uploaded, your initials are shown.</p>
+              </div>
+              <label class="block text-sm font-semibold">
+                Display name
+                <input id="dashboardDisplayName" type="text" value="Mohegan Sun"
+                  class="dashboard-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500" />
+              </label>
+              <label class="block text-sm font-semibold">
+                Account type
+                <select id="dashboardAccountType"
+                  class="dashboard-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                  <option>Brand</option>
+                  <option>Agency</option>
+                  <option>Individual</option>
+                </select>
+              </label>
+              <label class="block text-sm font-semibold">
+                Description
+                <textarea id="dashboardProfileDescription" rows="4"
+                  class="dashboard-input mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-violet-500">Public profile summary for the ads, campaigns, and creative references you share.</textarea>
+              </label>
+              <button id="dashboardSaveProfile" type="button"
+                class="w-full rounded-lg bg-violet-600 px-4 py-3 font-semibold text-white hover:bg-violet-700 transition">
+                Save profile
+              </button>
+              <p id="dashboardSaveStatus" class="dashboard-muted hidden text-sm text-neutral-500">Profile saved for this demo.</p>
+            </div>
+          </section>
+
+          <section class="dashboard-panel rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div class="mb-4 flex items-center justify-between gap-4">
+              <h3 class="text-xl font-extrabold tracking-tight">Favorite posters</h3>
+              <span id="dashboardFavoriteLabel" class="dashboard-muted text-sm text-neutral-500"></span>
+            </div>
+            <div id="dashboardFavorites" class="space-y-3"></div>
+          </section>
+
+          <section class="dashboard-panel rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div class="mb-4 flex items-center justify-between gap-4">
+              <h3 class="text-xl font-extrabold tracking-tight">Liked ads</h3>
+              <span id="dashboardLikedLabel" class="dashboard-muted text-sm text-neutral-500"></span>
+            </div>
+            <div id="dashboardLikedAds" class="space-y-3"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Gallery Toolbar -->
-  <section class="px-8 pb-6 pt-12">
+  <section id="galleryToolbar" class="px-8 pb-6 pt-12">
     <div class="max-w-7xl mx-auto flex items-center justify-between pb-4 mb-2">
       <p id="resultsCount" class="text-sm text-neutral-600">Showing 0 of 0 ads</p>
       <div class="flex items-center space-x-2">
@@ -135,9 +1281,12 @@
   </section>
 
   <!-- Gallery -->
-  <main class="px-8 pb-16">
+  <main id="archiveMain" class="px-8 pb-16">
     <div id="gallery"
       class="columns-1 sm:columns-2 lg:columns-3 xl:columns-5 gap-6 space-y-6 max-w-7xl mx-auto"></div>
+    <div id="noResults" class="hidden max-w-7xl mx-auto rounded-xl border border-neutral-200 bg-white/70 p-8 text-center text-neutral-500">
+      No ads match your search.
+    </div>
     <div id="loading" class="text-center text-neutral-500 py-10 hidden">Loading more ads…</div>
   </main>
 
@@ -151,12 +1300,12 @@
     <div class="relative flex flex-col items-center">
       <!-- Box -->
       <div
-        class="bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] max-w-full sm:max-w-3xl">
+        class="lightbox-box bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] max-w-full sm:max-w-3xl">
         <!-- Creative -->
         <div id="lightboxCreative"
           class="flex-1 bg-neutral-100 flex items-center justify-center"></div>
         <!-- Details -->
-        <div class="p-6 border-t border-neutral-200 w-full">
+        <div class="lightbox-details p-6 border-t border-neutral-200 w-full">
           <h2 id="lightboxTitle" class="text-2xl font-bold mb-2"></h2>
           <p id="lightboxDetails" class="text-neutral-600"></p>
           <p id="lightboxTags" class="text-sm text-neutral-500 italic mt-1"></p>
@@ -181,84 +1330,1230 @@
     const mobileSearchBtn = document.getElementById("mobileSearchBtn");
     const gallery = document.getElementById("gallery");
     const loading = document.getElementById("loading");
+    const noResults = document.getElementById("noResults");
     const resultsCount = document.getElementById("resultsCount");
     const sortSelect = document.getElementById("sortSelect");
+    const themeModeButtons = document.querySelectorAll("[data-theme-mode]");
+    const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mobileSearchInput = document.getElementById("mobileSearchInput");
+    const filtersClose = document.getElementById("filtersClose");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+    const activeSearchLabel = document.getElementById("activeSearchLabel");
+    const filterChips = document.querySelectorAll(".filter-chip");
+    const quickSearchButtons = document.querySelectorAll(".quick-search");
+    const heroCta = document.getElementById("heroCta");
+    const galleryToolbar = document.getElementById("galleryToolbar");
+    const archiveMain = document.getElementById("archiveMain");
+    const posterPage = document.getElementById("posterPage");
+    const posterBackBtn = document.getElementById("posterBackBtn");
+    const posterAvatar = document.getElementById("posterAvatar");
+    const posterName = document.getElementById("posterName");
+    const posterType = document.getElementById("posterType");
+    const posterDescription = document.getElementById("posterDescription");
+    const posterLocation = document.getElementById("posterLocation");
+    const posterSpecialty = document.getElementById("posterSpecialty");
+    const posterPostCount = document.getElementById("posterPostCount");
+    const posterResultCount = document.getElementById("posterResultCount");
+    const posterGallery = document.getElementById("posterGallery");
+    const posterFavoriteBtn = document.getElementById("posterFavoriteBtn");
+    const posterFavoriteIcon = document.getElementById("posterFavoriteIcon");
+    const posterFavoriteText = document.getElementById("posterFavoriteText");
+    const dashboardPage = document.getElementById("dashboardPage");
+    const dashboardAvatar = document.getElementById("dashboardAvatar");
+    const dashboardName = document.getElementById("dashboardName");
+    const dashboardType = document.getElementById("dashboardType");
+    const dashboardEmail = document.getElementById("dashboardEmail");
+    const dashboardDescription = document.getElementById("dashboardDescription");
+    const dashboardPostCount = document.getElementById("dashboardPostCount");
+    const dashboardLikeCount = document.getElementById("dashboardLikeCount");
+    const dashboardFavoriteCount = document.getElementById("dashboardFavoriteCount");
+    const dashboardLikedCount = document.getElementById("dashboardLikedCount");
+    const dashboardPostLabel = document.getElementById("dashboardPostLabel");
+    const dashboardPosts = document.getElementById("dashboardPosts");
+    const dashboardDisplayName = document.getElementById("dashboardDisplayName");
+    const dashboardAccountType = document.getElementById("dashboardAccountType");
+    const dashboardProfileDescription = document.getElementById("dashboardProfileDescription");
+    const dashboardSaveProfile = document.getElementById("dashboardSaveProfile");
+    const dashboardSaveStatus = document.getElementById("dashboardSaveStatus");
+    const dashboardProfilePreview = document.getElementById("dashboardProfilePreview");
+    const dashboardAvatarUpload = document.getElementById("dashboardAvatarUpload");
+    const dashboardRemoveAvatar = document.getElementById("dashboardRemoveAvatar");
+    const dashboardFavoriteLabel = document.getElementById("dashboardFavoriteLabel");
+    const dashboardFavorites = document.getElementById("dashboardFavorites");
+    const dashboardLikedLabel = document.getElementById("dashboardLikedLabel");
+    const dashboardLikedAds = document.getElementById("dashboardLikedAds");
+    const submitModal = document.getElementById("submitModal");
+    const submitForm = document.getElementById("submitForm");
+    const submitClose = document.getElementById("submitClose");
+    const submitOpenButtons = document.querySelectorAll(".submit-open");
+    const submitModalTitle = document.getElementById("submitModalTitle");
+    const submitModalSubtitle = document.getElementById("submitModalSubtitle");
+    const submitTitle = document.getElementById("submitTitle");
+    const submitCategory = document.getElementById("submitCategory");
+    const submitMedium = document.getElementById("submitMedium");
+    const submitType = document.getElementById("submitType");
+    const submitSize = document.getElementById("submitSize");
+    const customSizeFields = document.getElementById("customSizeFields");
+    const submitWidth = document.getElementById("submitWidth");
+    const submitHeight = document.getElementById("submitHeight");
+    const submitTags = document.getElementById("submitTags");
+    const submitLandingUrl = document.getElementById("submitLandingUrl");
+    const submitMediaUrl = document.getElementById("submitMediaUrl");
+    const submitFile = document.getElementById("submitFile");
+    const submitFileName = document.getElementById("submitFileName");
+    const submitNotes = document.getElementById("submitNotes");
+    const submitPosterSummary = document.getElementById("submitPosterSummary");
+    const submitCreativeSummary = document.getElementById("submitCreativeSummary");
+    const submitAssetSummary = document.getElementById("submitAssetSummary");
+    const submitStatus = document.getElementById("submitStatus");
+    const submitAdBtn = document.getElementById("submitAdBtn");
+    const submitResetBtn = document.getElementById("submitResetBtn");
+    const signInBtn = document.getElementById("signInBtn");
+    const createAccountBtn = document.getElementById("createAccountBtn");
+    const mobileAccountBtn = document.getElementById("mobileAccountBtn");
+    const accountLabel = document.getElementById("accountLabel");
+    const loginModal = document.getElementById("loginModal");
+    const loginClose = document.getElementById("loginClose");
+    const loginForm = document.getElementById("loginForm");
+    const loginEmail = document.getElementById("loginEmail");
+    const loginPassword = document.getElementById("loginPassword");
+    const loginModalTitle = document.getElementById("loginModalTitle");
+    const loginModalSubtitle = document.getElementById("loginModalSubtitle");
+    const loginSubmit = document.getElementById("loginSubmit");
+    const loginModeToggle = document.getElementById("loginModeToggle");
+    const loginStatus = document.getElementById("loginStatus");
+    const accountTypeField = document.getElementById("accountTypeField");
+    const accountType = document.getElementById("accountType");
+    const accountTypeButtons = document.querySelectorAll("[data-account-type]");
 
-    function openFilters() { filtersPanel.classList.remove("hidden"); overlay.classList.remove("hidden"); }
-    function closeFilters() { filtersPanel.classList.add("hidden"); overlay.classList.add("hidden"); }
+    let activeThemeMode = localStorage.getItem("adArchiveThemeMode") || "system";
+
+    function resolveTheme(mode) {
+      return mode === "system" ? (systemThemeQuery.matches ? "dark" : "light") : mode;
+    }
+
+    function setThemeMode(mode, persist = true) {
+      const nextMode = ["system", "light", "dark"].includes(mode) ? mode : "system";
+      const isDark = resolveTheme(nextMode) === "dark";
+      document.body.classList.toggle("theme-dark", isDark);
+      document.body.classList.toggle("theme-light", !isDark);
+      themeModeButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", button.dataset.themeMode === nextMode ? "true" : "false");
+      });
+      activeThemeMode = nextMode;
+      if (persist) {
+        localStorage.setItem("adArchiveThemeMode", nextMode);
+        localStorage.removeItem("adArchiveTheme");
+      }
+    }
+
+    setThemeMode(activeThemeMode, false);
+    themeModeButtons.forEach((button) => {
+      button.addEventListener("click", () => setThemeMode(button.dataset.themeMode));
+    });
+    systemThemeQuery.addEventListener("change", () => {
+      if (activeThemeMode === "system") setThemeMode("system", false);
+    });
+
+    let loginMode = "signin";
+    let signedInEmail = "";
+
+    function setAccountType(type) {
+      accountType.value = type;
+      accountTypeButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", button.dataset.accountType === type ? "true" : "false");
+      });
+    }
+
+    function setLoginMode(mode) {
+      loginMode = mode === "create" ? "create" : "signin";
+      const isCreate = loginMode === "create";
+      loginModalTitle.textContent = isCreate ? "Create account" : "Sign in";
+      loginModalSubtitle.textContent = isCreate
+        ? "Start saving favorites and organizing ad inspiration."
+        : "Save favorites and build your own creative collections.";
+      loginSubmit.textContent = isCreate ? "Create account" : "Sign in";
+      loginModeToggle.textContent = isCreate ? "Already have an account? Sign in" : "Need an account? Create one";
+      accountTypeField.classList.toggle("hidden", !isCreate);
+      loginStatus.classList.add("hidden");
+    }
+
+    function openLoginModal(mode = "signin") {
+      setLoginMode(mode);
+      loginModal.classList.remove("hidden");
+      loginModal.classList.add("flex");
+      setTimeout(() => loginEmail.focus(), 50);
+    }
+
+    function closeLoginModal() {
+      loginModal.classList.add("hidden");
+      loginModal.classList.remove("flex");
+    }
+
+    function updateAccountHeader(email) {
+      signedInEmail = email;
+      const name = email.split("@")[0] || "Account";
+      accountLabel.textContent = name;
+      createAccountBtn.textContent = "Sign out";
+      mobileAccountBtn.setAttribute("aria-label", `Signed in as ${name}`);
+    }
+
+    signInBtn.addEventListener("click", () => {
+      if (signedInEmail) {
+        location.hash = "dashboard";
+        return;
+      }
+      openLoginModal("signin");
+    });
+    createAccountBtn.addEventListener("click", () => {
+      if (signedInEmail) {
+        signedInEmail = "";
+        accountLabel.textContent = "Sign in";
+        createAccountBtn.textContent = "Create account";
+        loginForm.reset();
+        return;
+      }
+      openLoginModal("create");
+    });
+    mobileAccountBtn.addEventListener("click", () => {
+      if (signedInEmail) {
+        location.hash = "dashboard";
+        return;
+      }
+      openLoginModal("create");
+    });
+    loginClose.addEventListener("click", closeLoginModal);
+    loginModeToggle.addEventListener("click", () => {
+      setLoginMode(loginMode === "signin" ? "create" : "signin");
+    });
+    accountTypeButtons.forEach((button) => {
+      button.addEventListener("click", () => setAccountType(button.dataset.accountType));
+    });
+    loginModal.addEventListener("click", (e) => {
+      if (e.target === loginModal) closeLoginModal();
+    });
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = loginEmail.value.trim();
+      updateAccountHeader(email);
+      if (loginMode === "create") {
+        const currentProfile = getDashboardProfile();
+        setDashboardProfile({
+          ...currentProfile,
+          email,
+          type: accountType.value
+        });
+      }
+      if (!dashboardPage.classList.contains("hidden")) renderDashboard();
+      loginStatus.textContent = loginMode === "create"
+        ? `${accountType.value} account created for this demo.`
+        : "Signed in for this demo.";
+      loginStatus.classList.remove("hidden");
+      loginPassword.value = "";
+    });
+
+    function openFilters() {
+      filtersPanel.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+      if (window.innerWidth < 768) setTimeout(() => mobileSearchInput.focus(), 50);
+    }
+
+    function closeFilters() {
+      filtersPanel.classList.add("hidden");
+      overlay.classList.add("hidden");
+    }
+
     searchInput?.addEventListener("focus", openFilters);
     mobileSearchBtn.addEventListener("click", openFilters);
     overlay.addEventListener("click", closeFilters);
+    filtersClose.addEventListener("click", closeFilters);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeFilters();
+        closeLoginModal();
+        closeSubmitModal();
+      }
+    });
 
     // Mock ads
     const sizes = ["300x250", "728x90", "160x600", "300x600", "970x250", "468x60"];
+    const mediums = ["Web", "Social", "Digital", "Email", "Billboard", "Print", "In-App", "Other"];
+    const submitters = [
+      {
+        slug: "northstar-creative",
+        name: "Northstar Creative",
+        type: "Agency",
+        location: "New York, NY",
+        specialty: "Retail campaigns",
+        description: "An independent creative shop focused on high-converting retail campaigns, seasonal promotions, and polished display systems."
+      },
+      {
+        slug: "mohegan-sun",
+        name: "Mohegan Sun",
+        type: "Brand",
+        location: "Uncasville, CT",
+        specialty: "Entertainment and hospitality",
+        description: "A destination brand sharing display creative for entertainment, dining, hospitality, and event-driven campaigns."
+      },
+      {
+        slug: "pixel-lane-studio",
+        name: "Pixel Lane Studio",
+        type: "Agency",
+        location: "Austin, TX",
+        specialty: "Motion banners",
+        description: "A boutique studio specializing in animated HTML5 concepts, paid social adaptations, and modular banner systems."
+      },
+      {
+        slug: "avery-chen",
+        name: "Avery Chen",
+        type: "Individual",
+        location: "Seattle, WA",
+        specialty: "Freelance art direction",
+        description: "A freelance art director sharing selected concepts, experimental layouts, and personal ad studies."
+      },
+      {
+        slug: "brightbank",
+        name: "BrightBank",
+        type: "Brand",
+        location: "Chicago, IL",
+        specialty: "Financial services",
+        description: "A financial services brand posting transparent examples of trust-led acquisition and product education ads."
+      },
+      {
+        slug: "slate-signal",
+        name: "Slate & Signal",
+        type: "Agency",
+        location: "Los Angeles, CA",
+        specialty: "Performance creative",
+        description: "A performance creative agency building compact, testable display ads for finance, ecommerce, and subscription brands."
+      }
+    ];
     let ads = Array.from({ length: 40 }, (_, i) => {
       const types = ["image", "gif", "video"];
       const type = types[Math.floor(Math.random() * types.length)];
+      const submitter = submitters[i % submitters.length];
       return {
         id: i + 1,
         title: `Ad #${i + 1}`,
         category: i % 2 === 0 ? "Retail" : "Finance",
+        medium: mediums[i % mediums.length],
         tags: i % 3 === 0 ? "Animated" : "Static",
         size: sizes[i % sizes.length],
+        posterSlug: submitter.slug,
+        postedBy: submitter.name,
+        postedByType: submitter.type,
         likes: Math.floor(Math.random() * 40),
         liked: false,
         type
       };
     });
+    ads = applyEditedAds([...getSubmittedAds(), ...ads]);
+    ads.forEach((ad) => {
+      if (getLikedAdIds().includes(ad.id) && !ad.liked) {
+        ad.liked = true;
+        ad.likes += 1;
+      }
+    });
+
+    let filteredAds = [...ads];
+    const activeFilters = {
+      query: "",
+      category: "all",
+      medium: "all",
+      type: "all"
+    };
+
+    function getAdArea(ad) {
+      const [w, h] = ad.size.split("x").map(Number);
+      return w * h;
+    }
+
+    function getPosterBySlug(slug) {
+      return submitters.find((poster) => poster.slug === slug);
+    }
+
+    function getPosterInitials(name) {
+      return name
+        .split(" ")
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((part) => part[0])
+        .join("")
+        .toUpperCase();
+    }
+
+    function setAvatarContent(container, name, avatarUrl) {
+      container.textContent = "";
+      if (avatarUrl) {
+        const image = document.createElement("img");
+        image.src = avatarUrl;
+        image.alt = `${name} profile picture`;
+        container.appendChild(image);
+        return;
+      }
+      container.textContent = getPosterInitials(name);
+    }
+
+    function getFavoritePosters() {
+      try {
+        return JSON.parse(localStorage.getItem("favoritePosters") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function setFavoritePosters(slugs) {
+      localStorage.setItem("favoritePosters", JSON.stringify(slugs));
+    }
+
+    function getLikedAdIds() {
+      try {
+        return JSON.parse(localStorage.getItem("likedAds") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function setLikedAdIds(ids) {
+      localStorage.setItem("likedAds", JSON.stringify(ids));
+    }
+
+    function getSubmittedAds() {
+      try {
+        return JSON.parse(localStorage.getItem("submittedAds") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function setSubmittedAds(items) {
+      localStorage.setItem("submittedAds", JSON.stringify(items));
+    }
+
+    function getEditedAds() {
+      try {
+        return JSON.parse(localStorage.getItem("editedAds") || "{}");
+      } catch {
+        return {};
+      }
+    }
+
+    function setEditedAds(items) {
+      localStorage.setItem("editedAds", JSON.stringify(items));
+    }
+
+    function applyEditedAds(items) {
+      const editedAds = getEditedAds();
+      return items.map((ad) => editedAds[ad.id] ? { ...ad, ...editedAds[ad.id] } : ad);
+    }
+
+    function isPosterFavorited(slug) {
+      return getFavoritePosters().includes(slug);
+    }
+
+    function updatePosterFavoriteButton(slug) {
+      const isFavorited = isPosterFavorited(slug);
+      posterFavoriteBtn.dataset.posterSlug = slug;
+      posterFavoriteBtn.setAttribute("aria-pressed", isFavorited ? "true" : "false");
+      posterFavoriteIcon.textContent = isFavorited ? "♥" : "♡";
+      posterFavoriteText.textContent = isFavorited ? "Favorited" : "Favorite";
+    }
+
+    function togglePosterFavorite(slug) {
+      const favorites = getFavoritePosters();
+      const isFavorited = favorites.includes(slug);
+      const nextFavorites = isFavorited
+        ? favorites.filter((favoriteSlug) => favoriteSlug !== slug)
+        : [...favorites, slug];
+      setFavoritePosters(nextFavorites);
+      updatePosterFavoriteButton(slug);
+      if (!dashboardPage.classList.contains("hidden")) renderDashboard();
+    }
+
+    function getAdSearchText(ad) {
+      const poster = getPosterBySlug(ad.posterSlug);
+      return `${ad.title} ${ad.category} ${ad.medium || ""} ${ad.tags} ${ad.size} ${ad.type} ${getAdTypeLabel(ad.type)} ${ad.postedBy} ${ad.postedByType} ${ad.landingUrl || ""} ${ad.notes || ""} ${ad.mediaFileName || ""} ${poster?.location || ""} ${poster?.specialty || ""} ${poster?.description || ""}`.toLowerCase();
+    }
 
     function updateResultsCount() {
-      resultsCount.textContent = `Showing ${Math.min(loaded, ads.length)} of ${ads.length} ads`;
+      resultsCount.textContent = `Showing ${Math.min(loaded, filteredAds.length)} of ${filteredAds.length} ads`;
+    }
+
+    function updateActiveSearchLabel() {
+      const details = [];
+      if (activeFilters.query) details.push(`"${activeFilters.query}"`);
+      if (activeFilters.category !== "all") details.push(activeFilters.category);
+      if (activeFilters.medium !== "all") details.push(activeFilters.medium);
+      if (activeFilters.type !== "all") details.push(getAdTypeLabel(activeFilters.type));
+      activeSearchLabel.textContent = details.length
+        ? `Filtered by ${details.join(" · ")}.`
+        : "Showing everything in the archive.";
+    }
+
+    function updateFilterChips(type, value) {
+      filterChips.forEach((chip) => {
+        if (chip.dataset.filterType !== type) return;
+        chip.setAttribute("aria-pressed", chip.dataset.filterValue === value ? "true" : "false");
+      });
+    }
+
+    function applyCurrentSort() {
+      const v = sortSelect.value;
+      if (v === "newest") filteredAds.sort((a, b) => b.id - a.id);
+      else if (v === "oldest") filteredAds.sort((a, b) => a.id - b.id);
+      else if (v === "popular") filteredAds.sort((a, b) => b.likes - a.likes);
+      else if (v === "size") filteredAds.sort((a, b) => getAdArea(b) - getAdArea(a));
+    }
+
+    function refreshGallery() {
+      applyCurrentSort();
+      gallery.innerHTML = "";
+      loaded = 0;
+      loadVersion += 1;
+      loading.classList.add("hidden");
+      noResults.classList.toggle("hidden", filteredAds.length > 0);
+      updateResultsCount();
+      if (filteredAds.length > 0) loadAds();
+    }
+
+    function applyFilters() {
+      const query = activeFilters.query.toLowerCase();
+      filteredAds = ads.filter((ad) => {
+        const matchesQuery = !query || getAdSearchText(ad).includes(query);
+        const matchesCategory = activeFilters.category === "all" || ad.category === activeFilters.category;
+        const matchesMedium = activeFilters.medium === "all" || (ad.medium || "Web") === activeFilters.medium;
+        const matchesType = activeFilters.type === "all" || ad.type === activeFilters.type;
+        return matchesQuery && matchesCategory && matchesMedium && matchesType;
+      });
+      updateActiveSearchLabel();
+      refreshGallery();
     }
 
     function renderCreative(ad) {
       const [w, h] = ad.size.split("x");
       if (ad.type === "image") {
-        return `<img src="https://picsum.photos/${w}/${h}?random=${ad.id}" class="w-full h-auto">`;
+        const src = ad.mediaUrl || `https://picsum.photos/${w}/${h}?random=${ad.id}`;
+        return `<img src="${src}" class="w-full h-auto" alt="${ad.title}">`;
       } else if (ad.type === "gif") {
-        return `<img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" class="w-full h-auto">`;
+        const src = ad.mediaUrl || "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif";
+        return `<img src="${src}" class="w-full h-auto" alt="${ad.title}">`;
+      } else if (ad.type === "html5") {
+        return `
+          <div class="html5-preview flex min-h-[180px] items-center justify-center p-5">
+            <div class="html5-preview-box rounded-xl border border-violet-200 bg-white/90 p-4 text-center shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-wider text-violet-600">HTML5 ZIP</p>
+              <p class="mt-2 font-extrabold text-neutral-900">${ad.title}</p>
+              <p class="mt-1 text-sm text-neutral-500">${ad.mediaFileName || "Packaged creative"} · ${ad.size}</p>
+            </div>
+          </div>
+        `;
       } else {
-        return `<video autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" class="w-full h-auto"><source src="https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.mp4" type="video/mp4"></video>`;
+        const src = ad.mediaUrl || "https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.mp4";
+        return `<video autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" class="w-full h-auto"><source src="${src}" type="video/mp4"></video>`;
       }
+    }
+
+    function syncAdCards(ad) {
+      document.querySelectorAll(`[data-ad-id="${ad.id}"]`).forEach((card) => {
+        const cardHeart = card.querySelector(".heart-btn");
+        const cardLikes = card.querySelector(".like-count");
+        cardHeart.textContent = ad.liked ? "❤️" : "🤍";
+        cardHeart.classList.toggle("text-pink-500", ad.liked);
+        cardLikes.textContent = ad.likes;
+      });
+    }
+
+    function toggleAdLike(ad) {
+      ad.liked = !ad.liked;
+      ad.likes += ad.liked ? 1 : -1;
+
+      const likedIds = getLikedAdIds();
+      const nextLikedIds = ad.liked
+        ? [...new Set([...likedIds, ad.id])]
+        : likedIds.filter((id) => id !== ad.id);
+      setLikedAdIds(nextLikedIds);
+
+      syncAdCards(ad);
+      if (currentAd && currentAd.id === ad.id) updateLightbox(ad);
+      if (!dashboardPage.classList.contains("hidden")) renderDashboard();
     }
 
     function renderCard(ad) {
       const card = document.createElement("div");
-      card.className = "break-inside-avoid border border-neutral-200 bg-white  hover:shadow-xl transition cursor-pointer";
+      card.className = "ad-card break-inside-avoid border border-neutral-200 bg-white hover:shadow-xl transition cursor-pointer";
+      card.dataset.adId = ad.id;
       card.innerHTML = `
         <div class=" overflow-hidden">${renderCreative(ad)}</div>
-        <div class="border-t border-neutral-200 p-4  bg-white">
-          <h2 class="text-lg font-semibold">${ad.title}</h2>
-          <div class="mt-1 flex items-center justify-between">
-            <p class="text-sm text-neutral-500">${ad.category} · ${ad.tags} · ${ad.size}</p>
+        <div class="ad-card-body border-t border-neutral-200 p-4 bg-white">
+          <h2 class="ad-title text-lg font-semibold text-neutral-900">${ad.title}</h2>
+          <p class="posted-by mt-1 text-xs text-neutral-500">
+            Posted by:
+            <button type="button" class="poster-link posted-by-name font-semibold text-neutral-700" data-poster-slug="${ad.posterSlug}">
+              ${ad.postedBy}
+            </button>
+            · ${ad.postedByType}
+          </p>
+          <div class="mt-2 flex items-center justify-between gap-3">
+            <p class="ad-meta text-sm text-neutral-500">${ad.category} · ${ad.medium || "Web"} · ${ad.tags} · ${ad.size}</p>
             <div class="flex items-center space-x-1">
               <button class="heart-btn text-neutral-500 hover:text-pink-500 transition text-sm">${ad.liked ? "❤️" : "🤍"}</button>
-              <span class="like-count text-sm text-neutral-600">${ad.likes}</span>
+              <span class="like-count ad-like-count text-sm text-neutral-600">${ad.likes}</span>
             </div>
           </div>
         </div>`;
       card.querySelector("img, video").addEventListener("click", () => openLightbox(ad));
+      card.querySelector(".poster-link").addEventListener("click", (e) => {
+        e.stopPropagation();
+        goToPosterPage(ad.posterSlug);
+      });
       const heartBtn = card.querySelector(".heart-btn");
-      const likeCount = card.querySelector(".like-count");
       heartBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        ad.liked = !ad.liked;
-        ad.likes += ad.liked ? 1 : -1;
-        heartBtn.textContent = ad.liked ? "❤️" : "🤍";
-        heartBtn.classList.toggle("text-pink-500", ad.liked);
-        likeCount.textContent = ad.likes;
-        if (currentAd && currentAd.id === ad.id) updateLightbox(ad);
+        toggleAdLike(ad);
       });
       return card;
     }
 
+    function setArchiveVisible(isVisible) {
+      heroCta.classList.toggle("hidden", !isVisible);
+      galleryToolbar.classList.toggle("hidden", !isVisible);
+      archiveMain.classList.toggle("hidden", !isVisible);
+      posterPage.classList.toggle("hidden", isVisible);
+      dashboardPage.classList.add("hidden");
+    }
+
+    function goToPosterPage(slug) {
+      const nextHash = `poster/${encodeURIComponent(slug)}`;
+      if (location.hash === `#${nextHash}`) routeFromHash();
+      else location.hash = nextHash;
+    }
+
+    function showArchivePage() {
+      setArchiveVisible(true);
+      if (!gallery.children.length && filteredAds.length > 0) refreshGallery();
+    }
+
+    function showPosterPage(slug) {
+      const poster = getPosterBySlug(slug);
+      if (!poster) {
+        showArchivePage();
+        return;
+      }
+
+      const posterAds = ads
+        .filter((ad) => ad.posterSlug === poster.slug)
+        .sort((a, b) => b.id - a.id);
+      const dashboardProfile = getDashboardProfile();
+      const posterProfile = poster.slug === dashboardProfile.posterSlug
+        ? {
+            ...poster,
+            name: dashboardProfile.name,
+            type: dashboardProfile.type,
+            description: dashboardProfile.description,
+            avatarUrl: dashboardProfile.avatarUrl
+          }
+        : poster;
+
+      setAvatarContent(posterAvatar, posterProfile.name, posterProfile.avatarUrl);
+      posterName.textContent = posterProfile.name;
+      posterType.textContent = posterProfile.type;
+      posterDescription.textContent = posterProfile.description;
+      posterLocation.textContent = posterProfile.location;
+      posterSpecialty.textContent = posterProfile.specialty;
+      posterPostCount.textContent = `${posterAds.length} posts`;
+      posterResultCount.textContent = `${posterAds.length} posts by ${posterProfile.name}`;
+      updatePosterFavoriteButton(poster.slug);
+      posterGallery.innerHTML = "";
+      posterAds.forEach((ad) => posterGallery.appendChild(renderCard(ad)));
+
+      setArchiveVisible(false);
+      closeFilters();
+      closeLightbox();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function routeFromHash() {
+      if (location.hash === "#submit") {
+        showArchivePage();
+        openSubmitModal();
+        return;
+      }
+      if (location.hash === "#dashboard") {
+        showDashboardPage();
+        return;
+      }
+      const match = location.hash.match(/^#poster\/(.+)$/);
+      if (match) {
+        showPosterPage(decodeURIComponent(match[1]));
+      } else {
+        showArchivePage();
+      }
+    }
+
+    posterBackBtn.addEventListener("click", () => {
+      location.hash = "gallery";
+    });
+    posterFavoriteBtn.addEventListener("click", () => {
+      togglePosterFavorite(posterFavoriteBtn.dataset.posterSlug);
+    });
+
+    const defaultDashboardProfile = {
+      name: "Mohegan Sun",
+      type: "Brand",
+      email: "you@example.com",
+      description: "Public profile summary for the ads, campaigns, and creative references you share.",
+      avatarUrl: "",
+      posterSlug: "mohegan-sun"
+    };
+
+    function getDashboardProfile() {
+      try {
+        return {
+          ...defaultDashboardProfile,
+          ...JSON.parse(localStorage.getItem("dashboardProfile") || "{}")
+        };
+      } catch {
+        return defaultDashboardProfile;
+      }
+    }
+
+    function setDashboardProfile(profile) {
+      localStorage.setItem("dashboardProfile", JSON.stringify(profile));
+    }
+
+    function renderDashboardPosts(myAds) {
+      dashboardPosts.innerHTML = "";
+      myAds.forEach((ad) => {
+        const row = document.createElement("div");
+        row.className = "dashboard-row flex flex-col gap-3 border-t border-neutral-200 py-4 first:border-t-0 md:flex-row md:items-center md:justify-between";
+        row.innerHTML = `
+          <div>
+            <p class="font-semibold">${ad.title}</p>
+            <p class="dashboard-muted mt-1 text-sm text-neutral-500">${ad.category} · ${ad.medium || "Web"} · ${ad.tags} · ${ad.size} · ${getAdTypeLabel(ad.type)}</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="dashboard-muted text-sm text-neutral-500">${ad.likes} likes</span>
+            <button type="button" class="dashboard-edit-action dashboard-secondary edit-dashboard-ad inline-flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-300 bg-white text-neutral-700 hover:bg-neutral-100 transition" aria-label="Edit ${ad.title}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <button type="button" class="dashboard-secondary open-dashboard-ad rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+              Preview
+            </button>
+          </div>
+        `;
+        row.querySelector(".edit-dashboard-ad").addEventListener("click", () => openEditAdModal(ad));
+        row.querySelector(".open-dashboard-ad").addEventListener("click", () => openLightbox(ad));
+        dashboardPosts.appendChild(row);
+      });
+    }
+
+    function renderDashboardFavorites() {
+      const favoriteSlugs = getFavoritePosters();
+      const favorites = favoriteSlugs
+        .map((slug) => getPosterBySlug(slug))
+        .filter(Boolean);
+
+      dashboardFavoriteCount.textContent = favorites.length;
+      dashboardFavoriteLabel.textContent = `${favorites.length} saved`;
+      dashboardFavorites.innerHTML = "";
+
+      if (!favorites.length) {
+        dashboardFavorites.innerHTML = `<p class="dashboard-muted text-sm text-neutral-500">No favorite posters yet.</p>`;
+        return;
+      }
+
+      favorites.forEach((poster) => {
+        const row = document.createElement("div");
+        row.className = "dashboard-row flex items-center justify-between gap-3 border-t border-neutral-200 pt-3 first:border-t-0 first:pt-0";
+        row.innerHTML = `
+          <div class="flex min-w-0 items-center gap-3">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-100 text-sm font-extrabold text-violet-700">
+              ${getPosterInitials(poster.name)}
+            </div>
+            <div class="min-w-0">
+              <p class="truncate font-semibold">${poster.name}</p>
+              <p class="dashboard-muted text-sm text-neutral-500">${poster.type}</p>
+            </div>
+          </div>
+          <button type="button" class="dashboard-secondary view-favorite-poster shrink-0 rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+            View
+          </button>
+        `;
+        row.querySelector(".view-favorite-poster").addEventListener("click", () => goToPosterPage(poster.slug));
+        dashboardFavorites.appendChild(row);
+      });
+    }
+
+    function renderDashboardLikedAds() {
+      const likedAds = ads.filter((ad) => ad.liked);
+      dashboardLikedCount.textContent = likedAds.length;
+      dashboardLikedLabel.textContent = `${likedAds.length} saved`;
+      dashboardLikedAds.innerHTML = "";
+
+      if (!likedAds.length) {
+        dashboardLikedAds.innerHTML = `<p class="dashboard-muted text-sm text-neutral-500">No liked ads yet.</p>`;
+        return;
+      }
+
+      likedAds
+        .slice()
+        .sort((a, b) => b.id - a.id)
+        .forEach((ad) => {
+          const row = document.createElement("div");
+          row.className = "dashboard-row flex items-center justify-between gap-3 border-t border-neutral-200 pt-3 first:border-t-0 first:pt-0";
+          row.innerHTML = `
+            <div class="min-w-0">
+              <p class="truncate font-semibold">${ad.title}</p>
+              <p class="dashboard-muted mt-1 truncate text-sm text-neutral-500">
+                ${ad.category} · ${ad.medium || "Web"} · ${ad.size} · Posted by ${ad.postedBy}
+              </p>
+            </div>
+            <div class="flex shrink-0 items-center gap-2">
+              <button type="button" class="dashboard-secondary view-liked-poster rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+                Poster
+              </button>
+              <button type="button" class="dashboard-secondary preview-liked-ad rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+                Preview
+              </button>
+            </div>
+          `;
+          row.querySelector(".view-liked-poster").addEventListener("click", () => goToPosterPage(ad.posterSlug));
+          row.querySelector(".preview-liked-ad").addEventListener("click", () => openLightbox(ad));
+          dashboardLikedAds.appendChild(row);
+        });
+    }
+
+    function renderDashboard() {
+      const profile = getDashboardProfile();
+      const myAds = ads.filter((ad) => ad.posterSlug === profile.posterSlug);
+      const totalLikes = myAds.reduce((sum, ad) => sum + ad.likes, 0);
+
+      setAvatarContent(dashboardAvatar, profile.name, profile.avatarUrl);
+      setAvatarContent(dashboardProfilePreview, profile.name, profile.avatarUrl);
+      dashboardRemoveAvatar.classList.toggle("hidden", !profile.avatarUrl);
+      dashboardName.textContent = profile.name;
+      dashboardType.textContent = profile.type;
+      dashboardEmail.textContent = signedInEmail || profile.email;
+      dashboardDescription.textContent = profile.description;
+      dashboardDisplayName.value = profile.name;
+      dashboardAccountType.value = profile.type;
+      dashboardProfileDescription.value = profile.description;
+      dashboardPostCount.textContent = myAds.length;
+      dashboardLikeCount.textContent = totalLikes;
+      dashboardPostLabel.textContent = `${myAds.length} published`;
+
+      renderDashboardPosts(myAds);
+      renderDashboardFavorites();
+      renderDashboardLikedAds();
+    }
+
+    function showDashboardPage() {
+      renderDashboard();
+      heroCta.classList.add("hidden");
+      galleryToolbar.classList.add("hidden");
+      archiveMain.classList.add("hidden");
+      posterPage.classList.add("hidden");
+      dashboardPage.classList.remove("hidden");
+      closeFilters();
+      closeLightbox();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    dashboardSaveProfile.addEventListener("click", () => {
+      const current = getDashboardProfile();
+      const nextProfile = {
+        ...current,
+        name: dashboardDisplayName.value.trim() || current.name,
+        type: dashboardAccountType.value,
+        description: dashboardProfileDescription.value.trim() || current.description
+      };
+      setDashboardProfile(nextProfile);
+      renderDashboard();
+      dashboardSaveStatus.textContent = "Profile saved for this demo.";
+      dashboardSaveStatus.classList.remove("hidden");
+      setTimeout(() => dashboardSaveStatus.classList.add("hidden"), 1800);
+    });
+
+    dashboardDisplayName.addEventListener("input", () => {
+      const profile = getDashboardProfile();
+      setAvatarContent(dashboardProfilePreview, dashboardDisplayName.value.trim() || profile.name, profile.avatarUrl);
+    });
+
+    dashboardAvatarUpload.addEventListener("change", () => {
+      const file = dashboardAvatarUpload.files?.[0];
+      if (!file) return;
+
+      if (!file.type.startsWith("image/")) {
+        dashboardSaveStatus.textContent = "Please choose an image file.";
+        dashboardSaveStatus.classList.remove("hidden");
+        dashboardAvatarUpload.value = "";
+        return;
+      }
+
+      if (file.size > 1500000) {
+        dashboardSaveStatus.textContent = "Choose an image under 1.5 MB for this static demo.";
+        dashboardSaveStatus.classList.remove("hidden");
+        dashboardAvatarUpload.value = "";
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        const current = getDashboardProfile();
+        setDashboardProfile({
+          ...current,
+          avatarUrl: reader.result
+        });
+        renderDashboard();
+        dashboardSaveStatus.textContent = "Profile picture uploaded for this demo.";
+        dashboardSaveStatus.classList.remove("hidden");
+        dashboardAvatarUpload.value = "";
+        setTimeout(() => dashboardSaveStatus.classList.add("hidden"), 1800);
+      });
+      reader.readAsDataURL(file);
+    });
+
+    dashboardRemoveAvatar.addEventListener("click", () => {
+      const current = getDashboardProfile();
+      setDashboardProfile({
+        ...current,
+        avatarUrl: ""
+      });
+      renderDashboard();
+      dashboardSaveStatus.textContent = "Profile picture removed.";
+      dashboardSaveStatus.classList.remove("hidden");
+      setTimeout(() => dashboardSaveStatus.classList.add("hidden"), 1800);
+    });
+
+    let pendingSubmitMediaData = "";
+    let pendingSubmitFileName = "";
+    let submitMode = "create";
+    let editingAdId = null;
+
+    function setSubmitMode(mode) {
+      submitMode = mode === "edit" ? "edit" : "create";
+      editingAdId = submitMode === "edit" ? editingAdId : null;
+      submitModalTitle.textContent = submitMode === "edit" ? "Edit ad" : "Add an ad to the archive";
+      submitModalSubtitle.textContent = submitMode === "edit"
+        ? "Update the creative details, metadata, or media for this post."
+        : "Provide enough context for people to understand the creative, source, and format.";
+      submitAdBtn.textContent = submitMode === "edit" ? "Save changes" : "Submit ad";
+      submitResetBtn.textContent = submitMode === "edit" ? "Reset changes" : "Reset form";
+    }
+
+    function setSubmitSizeValue(size) {
+      const hasPreset = Array.from(submitSize.options).some((option) => option.value === size || option.textContent === size);
+      if (hasPreset) {
+        submitSize.value = size;
+        customSizeFields.classList.add("hidden");
+        submitWidth.value = "";
+        submitHeight.value = "";
+        return;
+      }
+
+      const [width, height] = size.split("x");
+      submitSize.value = "custom";
+      submitWidth.value = width || "";
+      submitHeight.value = height || "";
+      customSizeFields.classList.remove("hidden");
+    }
+
+    function populateSubmitFormFromAd(ad) {
+      editingAdId = ad.id;
+      setSubmitMode("edit");
+      submitTitle.value = ad.title || "";
+      submitCategory.value = ad.category || "Other";
+      submitMedium.value = ad.medium || "Web";
+      submitType.value = ad.type || "image";
+      setSubmitSizeValue(ad.size || "300x250");
+      submitTags.value = ad.tags || "";
+      submitLandingUrl.value = ad.landingUrl || "";
+      submitMediaUrl.value = ad.mediaUrl && !ad.mediaUrl.startsWith("data:") ? ad.mediaUrl : "";
+      submitNotes.value = ad.notes || "";
+      pendingSubmitMediaData = ad.mediaUrl && ad.mediaUrl.startsWith("data:") ? ad.mediaUrl : "";
+      pendingSubmitFileName = ad.mediaFileName || "";
+      submitFileName.textContent = pendingSubmitFileName || "Max 2.5 MB for the static prototype";
+      submitStatus.classList.add("hidden");
+      updateSubmitSummary();
+    }
+
+    function getSubmitSizeValue() {
+      if (submitSize.value !== "custom") return submitSize.value;
+      const width = Number(submitWidth.value);
+      const height = Number(submitHeight.value);
+      return width && height ? `${width}x${height}` : "Custom";
+    }
+
+    function getAdTypeLabel(type) {
+      if (type === "gif") return "GIF";
+      if (type === "html5") return "HTML5 ZIP";
+      return type.charAt(0).toUpperCase() + type.slice(1);
+    }
+
+    function updateSubmitSummary() {
+      const profile = getDashboardProfile();
+      const title = submitTitle.value.trim() || "Untitled";
+      submitPosterSummary.textContent = `${profile.name} · ${profile.type}`;
+      submitCreativeSummary.textContent = `${title} · ${submitMedium.value} · ${getAdTypeLabel(submitType.value)} · ${getSubmitSizeValue()}`;
+      submitAssetSummary.textContent = pendingSubmitFileName || submitMediaUrl.value.trim() || "Demo placeholder until media is provided";
+    }
+
+    function showSubmitStatus(message) {
+      submitStatus.textContent = message;
+      submitStatus.classList.remove("hidden");
+    }
+
+    function cleanSubmittedValue(value) {
+      return value.replace(/[<>"']/g, "").trim();
+    }
+
+    function resetSubmitForm() {
+      if (submitMode === "edit" && editingAdId) {
+        const ad = ads.find((item) => item.id === editingAdId);
+        if (ad) {
+          populateSubmitFormFromAd(ad);
+          return;
+        }
+      }
+      submitForm.reset();
+      pendingSubmitMediaData = "";
+      pendingSubmitFileName = "";
+      submitFileName.textContent = "Max 2.5 MB for the static prototype";
+      customSizeFields.classList.add("hidden");
+      submitStatus.classList.add("hidden");
+      updateSubmitSummary();
+    }
+
+    function openSubmitModal() {
+      setSubmitMode("create");
+      resetSubmitForm();
+      updateSubmitSummary();
+      submitModal.classList.remove("hidden");
+      submitModal.classList.add("flex");
+      setTimeout(() => submitTitle.focus(), 50);
+    }
+
+    function openEditAdModal(ad) {
+      populateSubmitFormFromAd(ad);
+      submitModal.classList.remove("hidden");
+      submitModal.classList.add("flex");
+      setTimeout(() => submitTitle.focus(), 50);
+    }
+
+    function closeSubmitModal() {
+      submitModal.classList.add("hidden");
+      submitModal.classList.remove("flex");
+    }
+
+    function addSubmittedAd(ad) {
+      const submittedAds = getSubmittedAds();
+      try {
+        setSubmittedAds([ad, ...submittedAds]);
+      } catch {
+        showSubmitStatus("The creative file is too large for browser storage. Try a smaller file or use a media URL.");
+        return false;
+      }
+
+      ads.unshift(ad);
+      filteredAds = ads.filter((existingAd) => {
+        const query = activeFilters.query.toLowerCase();
+        const matchesQuery = !query || getAdSearchText(existingAd).includes(query);
+        const matchesCategory = activeFilters.category === "all" || existingAd.category === activeFilters.category;
+        const matchesMedium = activeFilters.medium === "all" || (existingAd.medium || "Web") === activeFilters.medium;
+        const matchesType = activeFilters.type === "all" || existingAd.type === activeFilters.type;
+        return matchesQuery && matchesCategory && matchesMedium && matchesType;
+      });
+      refreshGallery();
+      if (!dashboardPage.classList.contains("hidden")) renderDashboard();
+      if (!posterPage.classList.contains("hidden")) routeFromHash();
+      return true;
+    }
+
+    function updateEditedAd(adId, updates) {
+      const adIndex = ads.findIndex((ad) => ad.id === adId);
+      if (adIndex === -1) {
+        showSubmitStatus("This ad could not be found.");
+        return false;
+      }
+
+      const updatedAd = { ...ads[adIndex], ...updates };
+      const submittedAds = getSubmittedAds();
+      const submittedIndex = submittedAds.findIndex((ad) => ad.id === adId);
+      const editedAds = getEditedAds();
+
+      try {
+        if (submittedIndex >= 0) {
+          submittedAds[submittedIndex] = updatedAd;
+          setSubmittedAds(submittedAds);
+        }
+        editedAds[adId] = updatedAd;
+        setEditedAds(editedAds);
+      } catch {
+        showSubmitStatus("The updated media is too large for browser storage. Try a smaller file or use a media URL.");
+        return false;
+      }
+
+      ads[adIndex] = updatedAd;
+      if (currentAd && currentAd.id === adId) {
+        currentAd = updatedAd;
+        updateLightbox(updatedAd);
+      }
+      applyFilters();
+      if (!dashboardPage.classList.contains("hidden")) renderDashboard();
+      if (!posterPage.classList.contains("hidden")) routeFromHash();
+      return true;
+    }
+
+    submitOpenButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        openSubmitModal();
+      });
+    });
+
+    submitClose.addEventListener("click", closeSubmitModal);
+    submitModal.addEventListener("click", (e) => {
+      if (e.target === submitModal) closeSubmitModal();
+    });
+    submitResetBtn.addEventListener("click", resetSubmitForm);
+
+    [submitTitle, submitCategory, submitMedium, submitType, submitSize, submitWidth, submitHeight, submitTags, submitMediaUrl].forEach((field) => {
+      field.addEventListener("input", updateSubmitSummary);
+      field.addEventListener("change", updateSubmitSummary);
+    });
+
+    submitSize.addEventListener("change", () => {
+      customSizeFields.classList.toggle("hidden", submitSize.value !== "custom");
+    });
+
+    submitFile.addEventListener("change", () => {
+      const file = submitFile.files?.[0];
+      pendingSubmitMediaData = "";
+      pendingSubmitFileName = "";
+      if (!file) {
+        submitFileName.textContent = "Max 2.5 MB for the static prototype";
+        updateSubmitSummary();
+        return;
+      }
+
+      const isZip = file.name.toLowerCase().endsWith(".zip")
+        || file.type === "application/zip"
+        || file.type === "application/x-zip-compressed";
+
+      if (!file.type.startsWith("image/") && !file.type.startsWith("video/") && !isZip) {
+        showSubmitStatus("Please choose an image, GIF, video, or HTML5 ZIP file.");
+        submitFile.value = "";
+        updateSubmitSummary();
+        return;
+      }
+
+      if (file.size > 2500000) {
+        showSubmitStatus("Choose a file under 2.5 MB for this static prototype.");
+        submitFile.value = "";
+        updateSubmitSummary();
+        return;
+      }
+
+      if (isZip) submitType.value = "html5";
+      else if (file.type.startsWith("video/")) submitType.value = "video";
+      else if (file.type === "image/gif") submitType.value = "gif";
+      else submitType.value = "image";
+
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        pendingSubmitMediaData = reader.result;
+        pendingSubmitFileName = file.name;
+        submitFileName.textContent = file.name;
+        submitStatus.classList.add("hidden");
+        updateSubmitSummary();
+      });
+      reader.readAsDataURL(file);
+    });
+
+    submitForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      submitStatus.classList.add("hidden");
+
+      const size = getSubmitSizeValue();
+      if (submitSize.value === "custom" && (!Number(submitWidth.value) || !Number(submitHeight.value))) {
+        showSubmitStatus("Enter a custom width and height.");
+        return;
+      }
+
+      const profile = getDashboardProfile();
+      const cleanedTitle = cleanSubmittedValue(submitTitle.value);
+      if (!cleanedTitle) {
+        showSubmitStatus("Enter a valid ad title.");
+        return;
+      }
+      const cleanedMediaUrl = cleanSubmittedValue(submitMediaUrl.value);
+      const hasZipAsset = pendingSubmitFileName.toLowerCase().endsWith(".zip") || cleanedMediaUrl.toLowerCase().endsWith(".zip");
+      if (submitType.value === "html5" && !hasZipAsset) {
+        showSubmitStatus("HTML5 submissions need a .zip upload or .zip media URL.");
+        return;
+      }
+
+      const adValues = {
+        title: cleanedTitle,
+        category: submitCategory.value,
+        medium: submitMedium.value,
+        tags: cleanSubmittedValue(submitTags.value) || "Submitted",
+        size,
+        posterSlug: profile.posterSlug,
+        postedBy: cleanSubmittedValue(profile.name),
+        postedByType: cleanSubmittedValue(profile.type),
+        mediaUrl: pendingSubmitMediaData || cleanedMediaUrl,
+        mediaFileName: cleanSubmittedValue(pendingSubmitFileName),
+        landingUrl: cleanSubmittedValue(submitLandingUrl.value),
+        notes: cleanSubmittedValue(submitNotes.value),
+        type: submitType.value
+      };
+
+      if (submitMode === "edit" && editingAdId) {
+        if (!updateEditedAd(editingAdId, {
+          ...adValues,
+          updatedAt: new Date().toISOString()
+        })) return;
+
+        showSubmitStatus("Changes saved.");
+        setTimeout(() => {
+          closeSubmitModal();
+          renderDashboard();
+        }, 700);
+        return;
+      }
+
+      const newAd = {
+        id: Date.now(),
+        ...adValues,
+        likes: 0,
+        liked: false,
+        submittedAt: new Date().toISOString()
+      };
+
+      if (!addSubmittedAd(newAd)) return;
+
+      showSubmitStatus("Submitted. The ad is now in the archive and your dashboard.");
+      setTimeout(() => {
+        closeSubmitModal();
+        resetSubmitForm();
+        location.hash = "dashboard";
+      }, 900);
+    });
+
     let loaded = 0;
+    let loadVersion = 0;
     const batch = 12;
     function loadAds() {
-      if (loaded >= ads.length) return;
+      if (loaded >= filteredAds.length) return;
+      const version = loadVersion;
       loading.classList.remove("hidden");
       setTimeout(() => {
-        ads.slice(loaded, loaded + batch).forEach(ad => gallery.appendChild(renderCard(ad)));
+        if (version !== loadVersion) return;
+        filteredAds.slice(loaded, loaded + batch).forEach(ad => gallery.appendChild(renderCard(ad)));
         loaded += batch;
         updateResultsCount();
         loading.classList.add("hidden");
@@ -266,12 +2561,66 @@
     }
 
     sortSelect.addEventListener("change", () => {
-      const v = sortSelect.value;
-      if (v === "newest") ads.sort((a, b) => b.id - a.id);
-      else if (v === "oldest") ads.sort((a, b) => a.id - b.id);
-      else if (v === "popular") ads.sort((a, b) => b.likes - a.likes);
-      else if (v === "size") ads.sort((a, b) => parseInt(b.size) - parseInt(a.size));
-      gallery.innerHTML = ""; loaded = 0; loadAds();
+      refreshGallery();
+    });
+
+    function syncSearchInputs(value) {
+      if (searchInput) searchInput.value = value;
+      mobileSearchInput.value = value;
+    }
+
+    function setSearchQuery(value) {
+      const nextValue = value.trim();
+      activeFilters.query = nextValue;
+      syncSearchInputs(nextValue);
+      applyFilters();
+    }
+
+    searchInput?.addEventListener("input", (e) => {
+      activeFilters.query = e.target.value.trim();
+      mobileSearchInput.value = e.target.value;
+      applyFilters();
+    });
+
+    mobileSearchInput.addEventListener("input", (e) => {
+      activeFilters.query = e.target.value.trim();
+      if (searchInput) searchInput.value = e.target.value;
+      applyFilters();
+    });
+
+    filterChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const type = chip.dataset.filterType;
+        const value = chip.dataset.filterValue;
+        activeFilters[type] = value;
+        updateFilterChips(type, value);
+        applyFilters();
+      });
+    });
+
+    quickSearchButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilters.category = "all";
+        activeFilters.medium = "all";
+        activeFilters.type = "all";
+        updateFilterChips("category", "all");
+        updateFilterChips("medium", "all");
+        updateFilterChips("type", "all");
+        setSearchQuery(button.dataset.quickSearch);
+      });
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      activeFilters.query = "";
+      activeFilters.category = "all";
+      activeFilters.medium = "all";
+      activeFilters.type = "all";
+      syncSearchInputs("");
+      updateFilterChips("category", "all");
+      updateFilterChips("medium", "all");
+      updateFilterChips("type", "all");
+      applyFilters();
+      searchInput?.focus();
     });
 
     window.addEventListener("scroll", () => {
@@ -292,14 +2641,35 @@
     function updateLightbox(ad) {
       const [w, h] = ad.size.split("x");
       if (ad.type === "image") {
-        lightboxCreative.innerHTML = `<img src="https://picsum.photos/${w}/${h}?random=${ad.id}" class="h-auto max-h-[60vh] w-auto max-w-full object-contain">`;
+        const src = ad.mediaUrl || `https://picsum.photos/${w}/${h}?random=${ad.id}`;
+        lightboxCreative.innerHTML = `<img src="${src}" class="h-auto max-h-[60vh] w-auto max-w-full object-contain" alt="${ad.title}">`;
       } else if (ad.type === "gif") {
-        lightboxCreative.innerHTML = `<img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" class="h-auto max-h-[60vh] w-auto max-w-full object-contain">`;
+        const src = ad.mediaUrl || "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif";
+        lightboxCreative.innerHTML = `<img src="${src}" class="h-auto max-h-[60vh] w-auto max-w-full object-contain" alt="${ad.title}">`;
+      } else if (ad.type === "html5") {
+        lightboxCreative.innerHTML = `
+          <div class="html5-preview flex min-h-[360px] w-full items-center justify-center p-8">
+            <div class="html5-preview-box max-w-md rounded-2xl border border-violet-200 bg-white/90 p-6 text-center shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-wider text-violet-600">HTML5 ZIP Package</p>
+              <h3 class="mt-3 text-2xl font-extrabold text-neutral-900">${ad.title}</h3>
+              <p class="mt-2 text-neutral-600">${ad.mediaFileName || "Packaged creative"} · ${ad.size}</p>
+              <p class="mt-4 text-sm text-neutral-500">In production, this ZIP would be uploaded to storage, validated, extracted, and served in a sandboxed preview.</p>
+            </div>
+          </div>
+        `;
       } else {
-        lightboxCreative.innerHTML = `<video autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" class="h-auto max-h-[60vh] w-auto max-w-full object-contain"><source src="https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.mp4" type="video/mp4"></video>`;
+        const src = ad.mediaUrl || "https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.mp4";
+        lightboxCreative.innerHTML = `<video autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" class="h-auto max-h-[60vh] w-auto max-w-full object-contain"><source src="${src}" type="video/mp4"></video>`;
       }
       lightboxTitle.textContent = ad.title;
-      lightboxDetails.textContent = `Category: ${ad.category} · Size: ${ad.size}`;
+      lightboxDetails.innerHTML = `
+        Posted by:
+        <button type="button" class="poster-link posted-by-name font-semibold text-neutral-700" data-poster-slug="${ad.posterSlug}">
+          ${ad.postedBy}
+        </button>
+        (${ad.postedByType}) · Category: ${ad.category} · Medium: ${ad.medium || "Web"} · Size: ${ad.size}
+      `;
+      lightboxDetails.querySelector(".poster-link").addEventListener("click", () => goToPosterPage(ad.posterSlug));
       lightboxTags.textContent = `Tags: ${ad.tags}`;
       lightboxLikes.textContent = ad.likes;
       lightboxHeart.textContent = ad.liked ? "❤️" : "🤍";
@@ -312,14 +2682,11 @@
     lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
     lightboxHeart.addEventListener("click", () => {
       if (!currentAd) return;
-      currentAd.liked = !currentAd.liked;
-      currentAd.likes += currentAd.liked ? 1 : -1;
-      updateLightbox(currentAd);
-      const cards = document.querySelectorAll("#gallery .like-count");
-      if (cards[currentAd.id - 1]) cards[currentAd.id - 1].textContent = currentAd.likes;
+      toggleAdLike(currentAd);
     });
 
-    loadAds();
+    window.addEventListener("hashchange", routeFromHash);
+    routeFromHash();
   </script>
 </body>
 </html>
