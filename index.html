@@ -582,29 +582,15 @@
     }
 
     .category-chip-list {
-      max-height: 8.75rem;
-      overflow: hidden;
-      position: relative;
-      transition: max-height 180ms ease;
+      overflow: visible;
     }
 
-    .category-chip-list:not(.expanded)::after {
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95));
-      bottom: 0;
-      content: "";
-      height: 2.75rem;
-      left: 0;
-      pointer-events: none;
-      position: absolute;
-      right: 0;
+    .category-chip-list .category-extra {
+      display: none;
     }
 
-    .theme-dark .category-chip-list:not(.expanded)::after {
-      background: linear-gradient(to bottom, rgba(23, 23, 23, 0), rgba(23, 23, 23, 0.95));
-    }
-
-    .category-chip-list.expanded {
-      max-height: 40rem;
+    .category-chip-list.expanded .category-extra {
+      display: inline-flex;
     }
 
     @media (max-width: 767px) {
@@ -1093,41 +1079,41 @@
             <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="SaaS" aria-pressed="false">SaaS</button>
             <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Travel" aria-pressed="false">Travel</button>
             <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Food & Beverage" aria-pressed="false">Food & Beverage</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Automotive" aria-pressed="false">Automotive</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Healthcare" aria-pressed="false">Healthcare</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Beauty" aria-pressed="false">Beauty</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Fashion" aria-pressed="false">Fashion</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Gaming" aria-pressed="false">Gaming</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Casino" aria-pressed="false">Casino</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Sports" aria-pressed="false">Sports</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Education" aria-pressed="false">Education</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Real Estate" aria-pressed="false">Real Estate</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Insurance" aria-pressed="false">Insurance</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Telecom" aria-pressed="false">Telecom</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Technology" aria-pressed="false">Technology</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Consumer Goods" aria-pressed="false">Consumer Goods</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Luxury" aria-pressed="false">Luxury</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Events" aria-pressed="false">Events</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Nonprofit" aria-pressed="false">Nonprofit</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Government" aria-pressed="false">Government</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Energy" aria-pressed="false">Energy</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Fitness" aria-pressed="false">Fitness</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Home & Garden" aria-pressed="false">Home & Garden</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Pets" aria-pressed="false">Pets</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Parenting" aria-pressed="false">Parenting</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="B2B" aria-pressed="false">B2B</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Recruiting" aria-pressed="false">Recruiting</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Streaming" aria-pressed="false">Streaming</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Music" aria-pressed="false">Music</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Movies" aria-pressed="false">Movies</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Restaurants" aria-pressed="false">Restaurants</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="CPG" aria-pressed="false">CPG</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Pharma" aria-pressed="false">Pharma</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Apparel" aria-pressed="false">Apparel</button>
-            <button type="button" class="filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Other" aria-pressed="false">Other</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Automotive" aria-pressed="false">Automotive</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Healthcare" aria-pressed="false">Healthcare</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Beauty" aria-pressed="false">Beauty</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Fashion" aria-pressed="false">Fashion</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Gaming" aria-pressed="false">Gaming</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Casino" aria-pressed="false">Casino</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Sports" aria-pressed="false">Sports</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Education" aria-pressed="false">Education</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Real Estate" aria-pressed="false">Real Estate</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Insurance" aria-pressed="false">Insurance</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Telecom" aria-pressed="false">Telecom</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Technology" aria-pressed="false">Technology</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Consumer Goods" aria-pressed="false">Consumer Goods</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Luxury" aria-pressed="false">Luxury</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Events" aria-pressed="false">Events</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Nonprofit" aria-pressed="false">Nonprofit</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Government" aria-pressed="false">Government</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Energy" aria-pressed="false">Energy</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Fitness" aria-pressed="false">Fitness</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Home & Garden" aria-pressed="false">Home & Garden</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Pets" aria-pressed="false">Pets</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Parenting" aria-pressed="false">Parenting</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="B2B" aria-pressed="false">B2B</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Recruiting" aria-pressed="false">Recruiting</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Streaming" aria-pressed="false">Streaming</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Music" aria-pressed="false">Music</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Movies" aria-pressed="false">Movies</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Restaurants" aria-pressed="false">Restaurants</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="CPG" aria-pressed="false">CPG</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Pharma" aria-pressed="false">Pharma</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Apparel" aria-pressed="false">Apparel</button>
+            <button type="button" class="category-extra filter-chip rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 transition" data-filter-type="category" data-filter-value="Other" aria-pressed="false">Other</button>
           </div>
           <button id="categoryToggleBtn" type="button"
-            class="mt-4 rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
+            class="mt-2 rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100 transition">
             View all categories
           </button>
         </div>
